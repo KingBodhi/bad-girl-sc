@@ -1,106 +1,134 @@
-const VOICES = [
+"use client";
+
+import { motion } from "framer-motion";
+import Image from "next/image";
+import { Eyebrow, Display } from "./ui";
+
+const TESTIMONIALS = [
   {
-    quote:
-      "I spent 10 years chasing a smaller body. In 16 weeks with BGSC I stopped caring about size and started caring about what I could DO. I deadlifted 185 lbs. I cried.",
-    name: "Mariana D.",
-    tag: "Phase 3 graduate",
+    quote: "I spent 10 years chasing a smaller body. In 16 weeks I stopped caring about size and started caring about what I could DO. I deadlifted 185 lbs. I cried.",
+    name: "Mariana D.", tag: "Phase 3 graduate", img: "/images/avatar-1.jpg",
   },
   {
-    quote:
-      "I was scared of weights my whole life. They kept telling me I'd get bulky. I didn't. I got powerful. There's a difference and now I know it in my bones.",
-    name: "Kezia T.",
-    tag: "12 weeks in",
+    quote: "They told me I'd get bulky. I didn't. I got powerful. There's a difference and now I know it in my bones. Strong is not the opposite of feminine.",
+    name: "Kezia T.", tag: "12 weeks in", img: "/images/avatar-2.jpg",
   },
   {
-    quote:
-      "It's not just a workout program. The community held me when I wanted to quit. These women are the most real people I've ever met online.",
-    name: "Simone A.",
-    tag: "Community member, 8 months",
+    quote: "It's not just a workout program. The community held me when I wanted to quit. I don't need more content. I needed the right culture. This is it.",
+    name: "Simone A.", tag: "Community member, 8 months", img: "/images/avatar-3.jpg",
   },
+];
+
+const STATS = [
+  { number: "1,200+", label: "Active Members" },
+  { number: "94%",    label: "Complete All 3 Phases" },
+  { number: "16 wks", label: "Full System" },
 ];
 
 export default function CultureSection() {
   return (
-    <section
-      className="py-24 px-6"
-      style={{ background: "#080808" }}
-    >
-      <div className="max-w-4xl mx-auto">
-        <p
-          className="text-xs tracking-[0.3em] uppercase font-bold mb-4"
-          style={{ color: "var(--power-red)" }}
-        >
-          The Culture
-        </p>
+    <section className="py-24 px-6" style={{ background: "var(--surface-2)" }}>
+      <div className="max-w-5xl mx-auto">
 
-        <h2
-          className="text-4xl md:text-5xl font-black uppercase leading-tight mb-6"
-          style={{
-            fontFamily: "'Impact', 'Arial Black', sans-serif",
-            color: "var(--soft-white)",
-          }}
-        >
-          A Club Is More Than a Program.
-        </h2>
+        <motion.div className="mb-16" initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
+          <Eyebrow>Culture &amp; Outcomes</Eyebrow>
+          <Display className="text-3xl sm:text-4xl md:text-5xl mb-4">
+            More Than a{" "}
+            <span style={{ color: "var(--crimson)" }}>Workout Plan.</span>
+          </Display>
+          <p className="text-lg max-w-2xl leading-relaxed" style={{ color: "var(--steel-gray)" }}>
+            You don&apos;t need more content. You need the right culture.
+            Women from every background united by one refusal — to stay where they were told to stay.
+          </p>
+        </motion.div>
 
-        <p
-          className="text-xl leading-relaxed mb-20 max-w-2xl"
-          style={{ color: "var(--steel-gray)" }}
-        >
-          When you join Bad Girl Strength Club you join a movement. Women from every
-          background, body type, and experience level — united by one refusal: to stay
-          where we were told to stay.
-        </p>
+        {/* Community image collage */}
+        <motion.div className="mb-12 md:mb-16 overflow-hidden"
+          initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}
+          viewport={{ once: true }} transition={{ duration: 0.8 }}>
 
-        <div className="grid md:grid-cols-3 gap-8">
-          {VOICES.map((v) => (
-            <div
-              key={v.name}
-              className="p-6 rounded-sm flex flex-col justify-between"
-              style={{ background: "#111", border: "1px solid #1e1e1e" }}
-            >
-              <p
-                className="text-base leading-relaxed italic mb-6"
-                style={{ color: "var(--soft-white)" }}
-              >
-                &ldquo;{v.quote}&rdquo;
-              </p>
-              <div>
-                <p className="text-sm font-bold" style={{ color: "var(--power-red)" }}>
-                  {v.name}
-                </p>
-                <p className="text-xs mt-1" style={{ color: "var(--steel-gray)" }}>
-                  {v.tag}
-                </p>
+          {/* Mobile: simple 2-col grid */}
+          <div className="grid grid-cols-2 gap-1.5 md:hidden">
+            {[
+              { src: "/images/community-1.jpg", alt: "BGSC community" },
+              { src: "/images/community-2.jpg", alt: "Members training together" },
+              { src: "/images/community-3.jpg", alt: "Chalk and preparation" },
+              { src: "/images/community-4.jpg", alt: "Rest between sets" },
+            ].map((img) => (
+              <div key={img.src} className="relative" style={{ height: 160 }}>
+                <Image src={img.src} alt={img.alt} fill
+                  className="object-cover" style={{ filter: "brightness(0.8) contrast(1.1)" }} />
+              </div>
+            ))}
+          </div>
+
+          {/* Desktop: editorial collage */}
+          <div className="hidden md:grid grid-cols-3 gap-1.5">
+            <div className="col-span-2 relative" style={{ height: 320 }}>
+              <Image src="/images/community-1.jpg" alt="BGSC community" fill
+                className="object-cover" style={{ filter: "brightness(0.8) contrast(1.1)" }} />
+            </div>
+            <div className="flex flex-col gap-1.5">
+              <div className="relative flex-1" style={{ minHeight: 156 }}>
+                <Image src="/images/community-2.jpg" alt="Members training together" fill
+                  className="object-cover" style={{ filter: "brightness(0.75) contrast(1.1)" }} />
+              </div>
+              <div className="relative flex-1" style={{ minHeight: 156 }}>
+                <Image src="/images/community-3.jpg" alt="Chalk and preparation" fill
+                  className="object-cover" style={{ filter: "brightness(0.75) contrast(1.1)" }} />
               </div>
             </div>
+            <div className="relative" style={{ height: 200 }}>
+              <Image src="/images/community-4.jpg" alt="Rest between sets" fill
+                className="object-cover" style={{ filter: "brightness(0.8) contrast(1.1)" }} />
+            </div>
+            <div className="col-span-2 relative" style={{ height: 200 }}>
+              <Image src="/images/community-5.jpg" alt="The barbell" fill
+                className="object-cover object-top" style={{ filter: "brightness(0.7) contrast(1.15)" }} />
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Testimonials */}
+        <div className="grid md:grid-cols-3 gap-5 mb-20">
+          {TESTIMONIALS.map((v, i) => (
+            <motion.div key={v.name} className="p-6 flex flex-col"
+              style={{ background: "var(--surface-1)", border: "1px solid var(--border)" }}
+              initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}>
+              <div className="flex items-center gap-3 mb-5">
+                <div className="relative w-12 h-12 rounded-full overflow-hidden flex-shrink-0">
+                  <Image src={v.img} alt={v.name} fill className="object-cover" />
+                </div>
+                <div>
+                  <p className="text-sm font-bold" style={{ color: "var(--crimson)" }}>{v.name}</p>
+                  <p className="text-xs mt-0.5" style={{ color: "var(--steel-gray)" }}>{v.tag}</p>
+                </div>
+              </div>
+              <p className="text-xs mb-4" style={{ color: "var(--crimson)", letterSpacing: "0.1em" }}>★★★★★</p>
+              <p className="text-sm leading-relaxed italic flex-1" style={{ color: "var(--soft-white)" }}>
+                &ldquo;{v.quote}&rdquo;
+              </p>
+            </motion.div>
           ))}
         </div>
 
-        {/* Social proof numbers */}
-        <div className="mt-20 grid grid-cols-3 gap-8 text-center">
-          {[
-            { number: "1,200+", label: "Active Members" },
-            { number: "16", label: "Week Program" },
-            { number: "94%", label: "Complete All 3 Phases" },
-          ].map((stat) => (
-            <div key={stat.label}>
-              <p
-                className="text-4xl md:text-5xl font-black"
-                style={{
-                  color: "var(--power-red)",
-                  fontFamily: "'Impact', sans-serif",
-                }}
-              >
-                {stat.number}
+        {/* Stats */}
+        <div className="grid grid-cols-3 gap-3 md:gap-6 text-center pt-10"
+          style={{ borderTop: "1px solid var(--border)" }}>
+          {STATS.map((s, i) => (
+            <motion.div key={s.label}
+              initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}>
+              <p className="text-3xl md:text-5xl font-black"
+                 style={{ fontFamily: "'Impact',sans-serif", color: "var(--crimson)" }}>
+                {s.number}
               </p>
-              <p
-                className="text-xs mt-2 uppercase tracking-widest"
-                style={{ color: "var(--steel-gray)" }}
-              >
-                {stat.label}
+              <p className="text-xs mt-2 uppercase tracking-widest" style={{ color: "var(--steel-gray)" }}>
+                {s.label}
               </p>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

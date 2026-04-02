@@ -1,108 +1,107 @@
+"use client";
+
+import { motion } from "framer-motion";
+import Image from "next/image";
+import { Display, Eyebrow } from "./ui";
+
+const PERKS = [
+  "Full access to all 3 phases — unlocked day 1",
+  "Video library: every movement, every standard",
+  "Join the private community immediately",
+  "Day 3 coach check-in included",
+  "Cancel before day 7 — you pay nothing",
+];
+
 export default function CloseSection() {
   const CTA_URL = process.env.NEXT_PUBLIC_CTA_URL ?? "#";
 
   return (
-    <section
-      id="close"
-      className="py-32 px-6 text-center"
-      style={{ background: "#050505" }}
-    >
-      <div className="max-w-3xl mx-auto">
-        <p
-          className="text-xs tracking-[0.3em] uppercase font-bold mb-8"
-          style={{ color: "var(--power-red)" }}
-        >
-          Your Decision
-        </p>
+    <section id="close" className="py-32 px-6" style={{ background: "var(--surface-1)" }}>
+      <div className="max-w-5xl mx-auto">
 
-        <h2
-          className="text-5xl md:text-6xl lg:text-7xl font-black uppercase leading-none mb-8"
-          style={{
-            fontFamily: "'Impact', 'Arial Black', sans-serif",
-            color: "var(--soft-white)",
-          }}
-        >
-          The Strongest Version of You
-          <br />
-          <span style={{ color: "var(--power-red)" }}>Is Waiting.</span>
-        </h2>
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center mb-16 lg:mb-24">
+          {/* Left: offer */}
+          <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }} transition={{ duration: 0.7 }}>
+            <Eyebrow>Final Close</Eyebrow>
+            <Display className="text-3xl sm:text-4xl md:text-5xl mb-6">
+              Step Into a{" "}
+              <span style={{ color: "var(--crimson)" }}>Stronger Standard.</span>
+            </Display>
+            <p className="text-lg leading-relaxed mb-10" style={{ color: "var(--steel-gray)" }}>
+              You can keep doing what you&apos;ve been doing and stay exactly where you are.
+              Or you can accept the invitation — 7 days, completely free — and find out what
+              happens when you finally train like you mean it.
+            </p>
 
-        <p
-          className="text-xl leading-relaxed mb-16 max-w-xl mx-auto"
-          style={{ color: "var(--steel-gray)" }}
-        >
-          You can keep doing what you&apos;ve been doing and stay exactly where you are.
-          Or you can join 1,200 women who decided to stop shrinking and start building.
-        </p>
+            <ul className="space-y-3 mb-10">
+              {PERKS.map((perk) => (
+                <li key={perk} className="flex items-start gap-3">
+                  <span className="flex-shrink-0 mt-0.5 w-5 h-5 rounded-full flex items-center justify-center text-xs font-bold"
+                    style={{ background: "rgba(143,0,0,0.2)", color: "var(--crimson)" }}>✓</span>
+                  <span className="text-sm" style={{ color: "var(--soft-white)" }}>{perk}</span>
+                </li>
+              ))}
+            </ul>
 
-        {/* Offer box */}
-        <div
-          className="max-w-md mx-auto p-10 rounded-sm mb-12"
-          style={{ background: "#111", border: "1px solid #C8102E22" }}
-        >
-          <p
-            className="text-xs tracking-widest uppercase font-bold mb-4"
-            style={{ color: "var(--steel-gray)" }}
-          >
-            Founding Member Pricing
-          </p>
+            <a href={CTA_URL}
+              className="block w-full text-center py-5 text-sm font-black uppercase tracking-[0.2em] transition-transform hover:scale-[1.02] pulse-cta"
+              style={{ background: "var(--crimson)", color: "var(--soft-white)", fontFamily: "'Arial Black',sans-serif" }}>
+              Start Free 7-Day Trial →
+            </a>
+            <p className="mt-3 text-xs text-center" style={{ color: "var(--steel-gray)" }}>
+              No credit card &nbsp;·&nbsp; Cancel anytime &nbsp;·&nbsp; 30-day money-back guarantee
+            </p>
+          </motion.div>
 
-          <div className="flex items-baseline justify-center gap-3 mb-2">
-            <span
-              className="text-2xl line-through"
-              style={{ color: "var(--steel-gray)" }}
-            >
-              $297
-            </span>
-            <span
-              className="text-6xl font-black"
-              style={{
-                color: "var(--soft-white)",
-                fontFamily: "'Impact', sans-serif",
-              }}
-            >
-              $97
-            </span>
-          </div>
-
-          <p
-            className="text-sm mb-8"
-            style={{ color: "var(--steel-gray)" }}
-          >
-            One-time payment. Lifetime access.
-          </p>
-
-          <a
-            href={CTA_URL}
-            className="block w-full py-5 text-lg font-bold uppercase tracking-widest transition-transform hover:scale-105 pulse-cta rounded-sm"
-            style={{
-              background: "var(--power-red)",
-              color: "var(--soft-white)",
-              fontFamily: "'Arial Black', sans-serif",
-            }}
-          >
-            Join Bad Girl Strength Club →
-          </a>
-
-          <p
-            className="mt-4 text-xs"
-            style={{ color: "var(--steel-gray)" }}
-          >
-            30-day money-back guarantee. No questions asked.
-          </p>
+          {/* Right: image */}
+          <motion.div className="relative overflow-hidden hidden lg:block" style={{ height: 560 }}
+            initial={{ opacity: 0, scale: 0.97 }} whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.15 }}>
+            <Image src="/images/close-triumph.jpg" alt="Step into a stronger standard" fill
+              className="object-cover object-top" style={{ filter: "brightness(0.85) contrast(1.15)" }} />
+            {/* Crimson bar accent */}
+            <div className="absolute right-0 top-0 bottom-0 w-1" style={{ background: "var(--crimson)" }} />
+          </motion.div>
         </div>
 
-        {/* Final line */}
-        <p
-          className="text-2xl md:text-3xl font-bold italic"
-          style={{ color: "var(--power-red)" }}
-        >
-          &ldquo;You were never meant to stay small.&rdquo;
-        </p>
+        {/* Pricing */}
+        <motion.div className="max-w-2xl mx-auto text-center py-12 mb-16"
+          style={{ border: "1px solid var(--border)", background: "var(--surface-2)" }}
+          initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }} transition={{ duration: 0.6 }}>
+          <p className="text-xs tracking-[0.3em] uppercase mb-6 font-bold" style={{ color: "var(--steel-gray)" }}>
+            After your 7-day trial
+          </p>
+          <div className="flex items-end justify-center gap-10 mb-4">
+            <div className="text-center">
+              <p className="text-3xl font-black" style={{ fontFamily: "'Impact',sans-serif", color: "var(--soft-white)" }}>
+                $47<span className="text-lg font-normal">/mo</span>
+              </p>
+              <p className="text-xs mt-1" style={{ color: "var(--steel-gray)" }}>Monthly</p>
+            </div>
+            <div className="text-center">
+              <p className="text-xs font-bold uppercase tracking-widest mb-2" style={{ color: "var(--crimson)" }}>Best value</p>
+              <p className="text-3xl font-black" style={{ fontFamily: "'Impact',sans-serif", color: "var(--soft-white)" }}>
+                $297<span className="text-lg font-normal">/yr</span>
+              </p>
+              <p className="text-xs mt-1" style={{ color: "var(--steel-gray)" }}>$25/month · save 47%</p>
+            </div>
+          </div>
+          <p className="text-xs" style={{ color: "var(--steel-gray)" }}>Cancel before day 7 and you are charged nothing.</p>
+        </motion.div>
 
-        <p className="mt-6 text-sm" style={{ color: "#333" }}>
-          © {new Date().getFullYear()} Bad Girl Strength Club. All rights reserved.
-        </p>
+        {/* Sign-off */}
+        <motion.div className="text-center"
+          initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}
+          viewport={{ once: true }} transition={{ duration: 0.8 }}>
+          <p className="text-2xl md:text-3xl lg:text-4xl font-bold italic mb-4 px-4" style={{ color: "var(--crimson)" }}>
+            &ldquo;If you are ready to build something stronger, you are in the right place.&rdquo;
+          </p>
+          <p className="text-xs mt-8" style={{ color: "#2a2a2a" }}>
+            © {new Date().getFullYear()} Bad Girl Strength Club · All rights reserved
+          </p>
+        </motion.div>
       </div>
     </section>
   );

@@ -1,77 +1,87 @@
+"use client";
+
+import { motion } from "framer-motion";
+import Image from "next/image";
+
+const f = (delay = 0) => ({
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.8, delay, ease: "easeOut" as const },
+});
+
 export default function HeroSection() {
   return (
-    <section
-      className="relative min-h-screen flex flex-col items-center justify-center text-center px-6 py-24"
-      style={{ background: "var(--near-black)" }}
-    >
-      {/* Background texture */}
-      <div
-        className="absolute inset-0 opacity-5"
-        style={{
-          backgroundImage:
-            "repeating-linear-gradient(45deg, #C8102E 0, #C8102E 1px, transparent 0, transparent 50%)",
-          backgroundSize: "10px 10px",
-        }}
-      />
+    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
+      {/* Full-bleed hero image */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/images/hero-bg.jpg"
+          alt="Bad Girl Strength Club"
+          fill
+          priority
+          className="object-cover object-center"
+          style={{ filter: "brightness(0.45)" }}
+        />
+        <div className="absolute inset-0"
+          style={{
+            background: "linear-gradient(to bottom, rgba(13,13,13,0.3) 0%, rgba(13,13,13,0.6) 50%, rgba(13,13,13,1) 100%)"
+          }} />
+      </div>
 
-      <div className="relative z-10 max-w-4xl mx-auto">
-        {/* Eyebrow */}
-        <p
-          className="text-sm font-bold tracking-[0.3em] uppercase mb-6"
-          style={{ color: "var(--power-red)" }}
+      <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
+        {/* BGSC wordmark */}
+        <motion.p
+          {...f(0.1)}
+          className="text-xs font-black tracking-[0.5em] uppercase mb-8"
+          style={{ color: "var(--crimson)", fontFamily: "'Arial Black',sans-serif" }}
         >
-          Bad Girl Strength Club
-        </p>
+          BGSC · Bad Girl Strength Club
+        </motion.p>
 
-        {/* Old standard — crossed out */}
-        <p
-          className="text-lg md:text-xl mb-2 line-through opacity-40"
-          style={{ color: "var(--steel-gray)" }}
-        >
-          &ldquo;Stay light. Stay toned.&rdquo;
-        </p>
+        {/* Rejected standard */}
+        <motion.p {...f(0.2)} className="text-base md:text-lg mb-2 line-through opacity-30 italic"
+          style={{ color: "var(--steel-gray)" }}>
+          &ldquo;Stay light. Stay toned. Stay small.&rdquo;
+        </motion.p>
 
         {/* Main headline */}
-        <h1
-          className="text-5xl md:text-7xl lg:text-8xl font-black uppercase leading-none tracking-tight mb-8"
-          style={{
-            fontFamily: "'Impact', 'Arial Black', sans-serif",
-            color: "var(--soft-white)",
-          }}
+        <motion.h1
+          {...f(0.3)}
+          className="text-5xl sm:text-6xl md:text-8xl lg:text-[7rem] font-black uppercase leading-none tracking-tight mb-8"
+          style={{ fontFamily: "'Impact','Arial Black',sans-serif", color: "var(--soft-white)" }}
         >
           You Were{" "}
-          <span style={{ color: "var(--power-red)" }}>Never</span>
+          <span style={{ color: "var(--crimson)" }}>Never</span>
           <br />
-          Meant to Stay{" "}
-          <span style={{ color: "var(--power-red)" }}>Small.</span>
-        </h1>
+          Meant to{" "}
+          <span style={{ color: "var(--crimson)" }}>Stay Small.</span>
+        </motion.h1>
 
-        <p
-          className="text-xl md:text-2xl max-w-2xl mx-auto leading-relaxed mb-12"
-          style={{ color: "var(--steel-gray)" }}
-        >
-          The strength program built for women who refuse to shrink — mentally,
-          physically, or otherwise.
-        </p>
+        <motion.p {...f(0.45)} className="text-lg md:text-xl max-w-xl mx-auto leading-relaxed mb-12"
+          style={{ color: "rgba(245,240,235,0.7)" }}>
+          An invitation into a stronger standard.
+          Not a workout plan — a behavioral code.
+        </motion.p>
 
-        <a
-          href="#close"
-          className="inline-block px-10 py-5 text-lg font-bold uppercase tracking-widest transition-transform hover:scale-105 pulse-cta"
-          style={{
-            background: "var(--power-red)",
-            color: "var(--soft-white)",
-            fontFamily: "'Arial Black', sans-serif",
-          }}
-        >
-          I&apos;m Ready to Get Strong →
-        </a>
-
-        {/* Scroll indicator */}
-        <div className="mt-16 flex flex-col items-center gap-2 opacity-40">
-          <p className="text-xs tracking-widest uppercase">Watch the video</p>
-          <div className="w-px h-12" style={{ background: "var(--power-red)" }} />
-        </div>
+        <motion.div {...f(0.55)} className="flex flex-col items-center gap-3">
+          <a href="#close"
+            className="inline-block px-8 md:px-12 py-4 md:py-5 text-xs md:text-sm font-black uppercase tracking-[0.2em] transition-transform hover:scale-[1.03] pulse-cta w-full sm:w-auto text-center"
+            style={{ background: "var(--crimson)", color: "var(--soft-white)", fontFamily: "'Arial Black',sans-serif" }}>
+            Start Your Free 7-Day Trial →
+          </a>
+          <p className="text-xs tracking-widest" style={{ color: "rgba(245,240,235,0.4)" }}>
+            No credit card required &nbsp;·&nbsp; Cancel anytime
+          </p>
+        </motion.div>
       </div>
+
+      {/* Scroll cue */}
+      <motion.div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-10"
+        initial={{ opacity: 0 }} animate={{ opacity: 0.35 }} transition={{ delay: 1.5 }}>
+        <span className="text-xs tracking-[0.4em] uppercase" style={{ color: "var(--soft-white)" }}>Watch</span>
+        <motion.div className="w-px" style={{ background: "var(--crimson)", height: 40 }}
+          initial={{ scaleY: 0 }} animate={{ scaleY: 1 }} transition={{ delay: 1.7, duration: 0.5 }} />
+      </motion.div>
     </section>
   );
 }

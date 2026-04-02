@@ -2,6 +2,7 @@
 
 import HeroSection from "@/components/HeroSection";
 import VideoSection from "@/components/VideoSection";
+import MarqueeBar from "@/components/MarqueeBar";
 import ProblemSection from "@/components/ProblemSection";
 import StandardSection from "@/components/StandardSection";
 import MethodSection from "@/components/MethodSection";
@@ -15,6 +16,7 @@ export default function VSLPage() {
     <main className="relative overflow-x-hidden">
       <StickyCtaBar />
       <HeroSection />
+      <MarqueeBar />
       <VideoSection />
       <div className="section-divider" />
       <ProblemSection />
