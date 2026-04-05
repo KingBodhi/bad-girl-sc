@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import HeroSection from "@/components/HeroSection";
 import VideoSection from "@/components/VideoSection";
 import MarqueeBar from "@/components/MarqueeBar";
@@ -10,12 +11,16 @@ import CultureSection from "@/components/CultureSection";
 import ObjectionsSection from "@/components/ObjectionsSection";
 import CloseSection from "@/components/CloseSection";
 import StickyCtaBar from "@/components/StickyCtaBar";
+import SignupModal from "@/components/SignupModal";
 
 export default function VSLPage() {
+  const [modalOpen, setModalOpen] = useState(false);
+
   return (
     <main className="relative overflow-x-hidden">
-      <StickyCtaBar />
-      <HeroSection />
+      <SignupModal open={modalOpen} onClose={() => setModalOpen(false)} />
+      <StickyCtaBar onCta={() => setModalOpen(true)} />
+      <HeroSection onCta={() => setModalOpen(true)} />
       <MarqueeBar />
       <VideoSection />
       <div className="section-divider" />
@@ -29,7 +34,7 @@ export default function VSLPage() {
       <div className="section-divider" />
       <ObjectionsSection />
       <div className="section-divider" />
-      <CloseSection />
+      <CloseSection onCta={() => setModalOpen(true)} />
     </main>
   );
 }

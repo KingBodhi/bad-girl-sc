@@ -10,7 +10,7 @@ export function cn(...inputs: Parameters<typeof clsx>) {
 export function Eyebrow({ children, className }: { children: React.ReactNode; className?: string }) {
   return (
     <p className={cn("text-xs font-bold tracking-[0.35em] uppercase mb-5", className)}
-       style={{ color: "var(--crimson)" }}>
+       style={{ color: "var(--crimson)", fontFamily: "var(--font-display, 'Arial Black', sans-serif)" }}>
       {children}
     </p>
   );
@@ -19,7 +19,7 @@ export function Eyebrow({ children, className }: { children: React.ReactNode; cl
 export function Display({ children, className }: { children: React.ReactNode; className?: string }) {
   return (
     <h2 className={cn("font-black uppercase leading-none tracking-tight", className)}
-        style={{ fontFamily: "'Impact','Arial Black',sans-serif", color: "var(--soft-white)" }}>
+        style={{ fontFamily: "var(--font-display, 'Arial Black', sans-serif)", color: "#FFFFFF" }}>
       {children}
     </h2>
   );

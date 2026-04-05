@@ -1,13 +1,16 @@
 @import "tailwindcss";
 
 :root {
-  --crimson: #8F0000;       /* Deep Crimson — emphasis only, never dominant */
+  --crimson: #8F0000;       /* Deep Crimson — accent only: buttons, highlights */
   --near-black: #0D0D0D;
-  --soft-white: #F5F0EB;
-  --steel-gray: #5A5A5A;
+  --soft-white: #FFFFFF;
   --surface-1: #111111;
   --surface-2: #161616;
   --border: #1E1E1E;
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
 }
 
 * { box-sizing: border-box; }
@@ -16,16 +19,21 @@ html { scroll-behavior: smooth; }
 body {
   background: var(--near-black);
   color: var(--soft-white);
-  font-family: 'Georgia', 'Times New Roman', serif;
+  font-family: var(--font-body, 'Inter', 'Helvetica Neue', sans-serif);
   -webkit-font-smoothing: antialiased;
 }
 
 /* Marquee */
 @keyframes marquee {
   from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
+  to   { transform: translateX(-100%); }
 }
-.marquee-track { animation: marquee 22s linear infinite; }
+.marquee-track {
+  display: flex;
+  flex-shrink: 0;
+  animation: marquee 40s linear infinite;
+  will-change: transform;
+}
 
 /* Pulse CTA */
 @keyframes pulse-crimson {
@@ -38,7 +46,7 @@ body {
 .section-divider {
   height: 1px;
   background: linear-gradient(90deg, transparent, var(--crimson) 30%, var(--crimson) 70%, transparent);
-  opacity: 0.3;
+  opacity: 0.2;
 }
 
 /* Video */

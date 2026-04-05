@@ -51,12 +51,13 @@ export default function ObjectionsSection() {
               initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.06 }}>
               <Accordion.Item value={`item-${i}`}
-                style={{ border: "1px solid var(--border)" }}>
+                style={{ border: "1px solid var(--border)", borderRadius: "var(--radius-md)", overflow: "hidden" }}>
                 <Accordion.Header>
                   <Accordion.Trigger
                     className="w-full flex items-center justify-between px-6 py-5 text-left group"
                     style={{ background: "var(--surface-1)" }}>
-                    <span className="text-sm font-bold pr-4" style={{ color: "var(--soft-white)" }}>
+                    <span className="text-sm font-bold pr-4"
+                          style={{ color: "#FFFFFF", fontFamily: "var(--font-body, 'Inter', sans-serif)" }}>
                       {item.q}
                     </span>
                     <ChevronDown size={16} style={{ color: "var(--crimson)", flexShrink: 0 }}
@@ -64,7 +65,8 @@ export default function ObjectionsSection() {
                   </Accordion.Trigger>
                 </Accordion.Header>
                 <Accordion.Content style={{ background: "var(--surface-2)" }}>
-                  <p className="px-6 py-5 text-sm leading-relaxed" style={{ color: "var(--steel-gray)" }}>
+                  <p className="px-6 py-5 text-sm leading-relaxed"
+                     style={{ color: "rgba(255,255,255,0.78)", fontFamily: "var(--font-body, 'Inter', sans-serif)" }}>
                     {item.a}
                   </p>
                 </Accordion.Content>

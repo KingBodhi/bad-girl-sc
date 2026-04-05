@@ -37,7 +37,8 @@ export default function CultureSection() {
             More Than a{" "}
             <span style={{ color: "var(--crimson)" }}>Workout Plan.</span>
           </Display>
-          <p className="text-lg max-w-2xl leading-relaxed" style={{ color: "var(--steel-gray)" }}>
+          <p className="text-lg max-w-2xl leading-relaxed"
+             style={{ color: "rgba(255,255,255,0.75)", fontFamily: "var(--font-body, 'Inter', sans-serif)" }}>
             You don&apos;t need more content. You need the right culture.
             Women from every background united by one refusal — to stay where they were told to stay.
           </p>
@@ -45,6 +46,7 @@ export default function CultureSection() {
 
         {/* Community image collage */}
         <motion.div className="mb-12 md:mb-16 overflow-hidden"
+          style={{ borderRadius: "var(--radius-lg)" }}
           initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}
           viewport={{ once: true }} transition={{ duration: 0.8 }}>
 
@@ -58,7 +60,7 @@ export default function CultureSection() {
             ].map((img) => (
               <div key={img.src} className="relative" style={{ height: 160 }}>
                 <Image src={img.src} alt={img.alt} fill
-                  className="object-cover" style={{ filter: "brightness(0.8) contrast(1.1)" }} />
+                  className="object-cover" style={{ filter: "brightness(0.88) contrast(1.1)" }} />
               </div>
             ))}
           </div>
@@ -67,25 +69,25 @@ export default function CultureSection() {
           <div className="hidden md:grid grid-cols-3 gap-1.5">
             <div className="col-span-2 relative" style={{ height: 320 }}>
               <Image src="/images/community-1.jpg" alt="BGSC community" fill
-                className="object-cover" style={{ filter: "brightness(0.8) contrast(1.1)" }} />
+                className="object-cover" style={{ filter: "brightness(0.88) contrast(1.1)" }} />
             </div>
             <div className="flex flex-col gap-1.5">
               <div className="relative flex-1" style={{ minHeight: 156 }}>
                 <Image src="/images/community-2.jpg" alt="Members training together" fill
-                  className="object-cover" style={{ filter: "brightness(0.75) contrast(1.1)" }} />
+                  className="object-cover" style={{ filter: "brightness(0.85) contrast(1.1)" }} />
               </div>
               <div className="relative flex-1" style={{ minHeight: 156 }}>
                 <Image src="/images/community-3.jpg" alt="Chalk and preparation" fill
-                  className="object-cover" style={{ filter: "brightness(0.75) contrast(1.1)" }} />
+                  className="object-cover" style={{ filter: "brightness(0.85) contrast(1.1)" }} />
               </div>
             </div>
             <div className="relative" style={{ height: 200 }}>
               <Image src="/images/community-4.jpg" alt="Rest between sets" fill
-                className="object-cover" style={{ filter: "brightness(0.8) contrast(1.1)" }} />
+                className="object-cover" style={{ filter: "brightness(0.88) contrast(1.1)" }} />
             </div>
             <div className="col-span-2 relative" style={{ height: 200 }}>
               <Image src="/images/community-5.jpg" alt="The barbell" fill
-                className="object-cover object-top" style={{ filter: "brightness(0.7) contrast(1.15)" }} />
+                className="object-cover object-top" style={{ filter: "brightness(0.82) contrast(1.15)" }} />
             </div>
           </div>
         </motion.div>
@@ -94,7 +96,7 @@ export default function CultureSection() {
         <div className="grid md:grid-cols-3 gap-5 mb-20">
           {TESTIMONIALS.map((v, i) => (
             <motion.div key={v.name} className="p-6 flex flex-col"
-              style={{ background: "var(--surface-1)", border: "1px solid var(--border)" }}
+              style={{ background: "var(--surface-1)", border: "1px solid var(--border)", borderRadius: "var(--radius-lg)" }}
               initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}>
               <div className="flex items-center gap-3 mb-5">
@@ -102,12 +104,15 @@ export default function CultureSection() {
                   <Image src={v.img} alt={v.name} fill className="object-cover" />
                 </div>
                 <div>
-                  <p className="text-sm font-bold" style={{ color: "var(--crimson)" }}>{v.name}</p>
-                  <p className="text-xs mt-0.5" style={{ color: "var(--steel-gray)" }}>{v.tag}</p>
+                  <p className="text-sm font-bold"
+                     style={{ color: "#FFFFFF", fontFamily: "var(--font-display, 'Arial Black', sans-serif)" }}>{v.name}</p>
+                  <p className="text-xs mt-0.5"
+                     style={{ color: "rgba(255,255,255,0.5)", fontFamily: "var(--font-body, 'Inter', sans-serif)" }}>{v.tag}</p>
                 </div>
               </div>
               <p className="text-xs mb-4" style={{ color: "var(--crimson)", letterSpacing: "0.1em" }}>★★★★★</p>
-              <p className="text-sm leading-relaxed italic flex-1" style={{ color: "var(--soft-white)" }}>
+              <p className="text-sm leading-relaxed flex-1"
+                 style={{ color: "#FFFFFF", fontFamily: "var(--font-body, 'Inter', sans-serif)" }}>
                 &ldquo;{v.quote}&rdquo;
               </p>
             </motion.div>
@@ -122,10 +127,11 @@ export default function CultureSection() {
               initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}>
               <p className="text-3xl md:text-5xl font-black"
-                 style={{ fontFamily: "'Impact',sans-serif", color: "var(--crimson)" }}>
+                 style={{ fontFamily: "var(--font-display, 'Arial Black', sans-serif)", color: "var(--crimson)" }}>
                 {s.number}
               </p>
-              <p className="text-xs mt-2 uppercase tracking-widest" style={{ color: "var(--steel-gray)" }}>
+              <p className="text-xs mt-2 uppercase tracking-widest"
+                 style={{ color: "rgba(255,255,255,0.5)", fontFamily: "var(--font-display, 'Arial Black', sans-serif)" }}>
                 {s.label}
               </p>
             </motion.div>

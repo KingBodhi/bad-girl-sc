@@ -37,7 +37,8 @@ export default function MethodSection() {
             <span style={{ color: "var(--crimson)" }}>Lift Heavy.</span>
             {" "}Get Coached.
           </Display>
-          <p className="text-lg leading-relaxed" style={{ color: "var(--steel-gray)" }}>
+          <p className="text-lg leading-relaxed"
+             style={{ color: "rgba(255,255,255,0.75)", fontFamily: "var(--font-body, 'Inter', sans-serif)" }}>
             Not a recycled men&apos;s program. Not high-rep &ldquo;toning.&rdquo; A structured 16-week
             system built around three pillars that actually move the needle — clean nutrition,
             heavy progressive lifting, and real coaching accountability.
@@ -49,34 +50,35 @@ export default function MethodSection() {
           {PHASES.map((p, i) => (
             <motion.div key={p.phase}
               className="relative overflow-hidden"
-              style={{ background: "var(--surface-1)", border: "1px solid var(--border)" }}
+              style={{ background: "var(--surface-1)", border: "1px solid var(--border)", borderRadius: "var(--radius-lg)" }}
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
             >
-              <div className="relative h-44 overflow-hidden">
+              <div className="relative h-44 overflow-hidden" style={{ borderRadius: "var(--radius-lg) var(--radius-lg) 0 0" }}>
                 <Image src={p.img} alt={p.name} fill
                   className="object-cover object-center"
-                  style={{ filter: "brightness(0.7) contrast(1.2)" }} />
+                  style={{ filter: "brightness(0.8) contrast(1.15)" }} />
                 <div className="absolute inset-0" style={{
                   background: "linear-gradient(to bottom, transparent 40%, var(--surface-1) 100%)"
                 }} />
-                {/* Phase number watermark */}
                 <span className="absolute top-3 right-4 text-6xl font-black opacity-[0.12] leading-none"
-                  style={{ fontFamily: "'Impact',sans-serif", color: "var(--soft-white)" }}>
+                  style={{ fontFamily: "var(--font-display, 'Arial Black', sans-serif)", color: "#FFFFFF" }}>
                   {String(i + 1).padStart(2, "0")}
                 </span>
               </div>
               <div className="p-6">
-                <p className="text-xs font-bold uppercase tracking-widest mb-1" style={{ color: "var(--crimson)" }}>
+                <p className="text-xs font-bold uppercase tracking-widest mb-1"
+                   style={{ color: "var(--crimson)", fontFamily: "var(--font-display, 'Arial Black', sans-serif)" }}>
                   {p.phase} · {p.weeks}
                 </p>
                 <h3 className="text-2xl font-black uppercase mb-3"
-                    style={{ fontFamily: "'Impact',sans-serif", color: "var(--soft-white)" }}>
+                    style={{ fontFamily: "var(--font-display, 'Arial Black', sans-serif)", color: "#FFFFFF" }}>
                   {p.name}
                 </h3>
-                <p className="text-sm leading-relaxed" style={{ color: "var(--steel-gray)" }}>{p.desc}</p>
+                <p className="text-sm leading-relaxed"
+                   style={{ color: "rgba(255,255,255,0.72)", fontFamily: "var(--font-body, 'Inter', sans-serif)" }}>{p.desc}</p>
               </div>
             </motion.div>
           ))}
@@ -84,17 +86,19 @@ export default function MethodSection() {
 
         {/* What's included */}
         <motion.div className="p-5 md:p-8 lg:p-12"
-          style={{ background: "var(--surface-2)", border: "1px solid var(--border)" }}
+          style={{ background: "var(--surface-2)", border: "1px solid var(--border)", borderRadius: "var(--radius-lg)" }}
           initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
-          <h4 className="text-xs font-bold uppercase tracking-[0.3em] mb-8" style={{ color: "var(--crimson)" }}>
+          <h4 className="text-xs font-bold uppercase tracking-[0.3em] mb-8"
+              style={{ color: "var(--crimson)", fontFamily: "var(--font-display, 'Arial Black', sans-serif)" }}>
             Everything Included in Your Free 7-Day Trial
           </h4>
           <ul className="grid md:grid-cols-2 gap-x-12 gap-y-4">
             {INCLUDED.map((item) => (
               <li key={item} className="flex items-start gap-3">
-                <span className="flex-shrink-0 mt-0.5 w-5 h-5 rounded-full flex items-center justify-center text-xs font-bold"
-                  style={{ background: "rgba(143,0,0,0.2)", color: "var(--crimson)" }}>✓</span>
-                <span className="text-sm" style={{ color: "var(--soft-white)" }}>{item}</span>
+                <span className="flex-shrink-0 mt-0.5 w-5 h-5 flex items-center justify-center text-xs font-bold"
+                  style={{ background: "rgba(143,0,0,0.2)", color: "var(--crimson)", borderRadius: "var(--radius-sm)" }}>✓</span>
+                <span className="text-sm"
+                      style={{ color: "#FFFFFF", fontFamily: "var(--font-body, 'Inter', sans-serif)" }}>{item}</span>
               </li>
             ))}
           </ul>

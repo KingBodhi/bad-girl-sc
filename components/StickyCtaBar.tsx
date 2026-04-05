@@ -3,9 +3,8 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-export default function StickyCtaBar() {
+export default function StickyCtaBar({ onCta }: { onCta: () => void }) {
   const [visible, setVisible] = useState(false);
-  const CTA_URL = process.env.NEXT_PUBLIC_CTA_URL ?? "#close";
 
   useEffect(() => {
     const onScroll = () => setVisible(window.scrollY > window.innerHeight * 0.7);
@@ -26,16 +25,24 @@ export default function StickyCtaBar() {
         >
           <div className="max-w-5xl mx-auto px-6 py-3 flex items-center justify-between gap-4">
             <div className="hidden sm:block">
-              <p className="text-sm font-black uppercase tracking-wide" style={{ color: "var(--soft-white)", fontFamily: "'Arial Black',sans-serif" }}>
+              <p className="text-sm font-black uppercase tracking-wide"
+                 style={{ color: "#FFFFFF", fontFamily: "var(--font-display, 'Arial Black', sans-serif)" }}>
                 BGSC
               </p>
-              <p className="text-xs" style={{ color: "var(--steel-gray)" }}>7-day free trial · No card required</p>
+              <p className="text-xs" style={{ color: "rgba(255,255,255,0.6)" }}>
+                7-day free trial · No card required
+              </p>
             </div>
-            <a href={CTA_URL}
+            <button onClick={onCta}
               className="flex-shrink-0 px-8 py-3 text-xs font-black uppercase tracking-[0.2em] transition-opacity hover:opacity-90 pulse-cta"
-              style={{ background: "var(--crimson)", color: "var(--soft-white)", fontFamily: "'Arial Black',sans-serif" }}>
+              style={{
+                background: "var(--crimson)",
+                color: "#FFFFFF",
+                fontFamily: "var(--font-display, 'Arial Black', sans-serif)",
+                borderRadius: "var(--radius-md)",
+              }}>
               Start Free Trial →
-            </a>
+            </button>
           </div>
         </motion.div>
       )}

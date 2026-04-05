@@ -4,15 +4,16 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 
 const f = (delay = 0) => ({
-  initial: { opacity: 0, y: 20 },
+  initial: { opacity: 0, y: 16 },
   animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.8, delay, ease: "easeOut" as const },
+  transition: { duration: 0.7, delay, ease: "easeOut" as const },
 });
 
-export default function HeroSection() {
+export default function HeroSection({ onCta }: { onCta: () => void }) {
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
-      {/* Full-bleed hero image */}
+    <section className="relative h-screen max-h-screen flex flex-col overflow-hidden">
+
+      {/* Full-bleed background */}
       <div className="absolute inset-0 z-0">
         <Image
           src="/images/hero-bg.jpg"
@@ -20,35 +21,40 @@ export default function HeroSection() {
           fill
           priority
           className="object-cover object-center"
-          style={{ filter: "brightness(0.45)" }}
+          style={{ filter: "brightness(0.65) contrast(1.1)" }}
         />
         <div className="absolute inset-0"
           style={{
-            background: "linear-gradient(to bottom, rgba(13,13,13,0.3) 0%, rgba(13,13,13,0.6) 50%, rgba(13,13,13,1) 100%)"
+            background: "linear-gradient(to bottom, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.85) 100%)"
           }} />
       </div>
 
-      <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
-        {/* BGSC wordmark */}
-        <motion.p
-          {...f(0.1)}
-          className="text-xs font-black tracking-[0.5em] uppercase mb-8"
-          style={{ color: "var(--crimson)", fontFamily: "'Arial Black',sans-serif" }}
-        >
-          BGSC · Bad Girl Strength Club
-        </motion.p>
+      {/* Logo — anchored top, smaller on mobile */}
+      <motion.div
+        {...f(0.05)}
+        className="relative z-10 flex justify-center pt-5 md:pt-8"
+      >
+        <Image
+          src="/images/bgsc-logo.png"
+          alt="BGSC — Bad Girl Strength Club"
+          width={640}
+          height={216}
+          className="w-24 h-auto md:w-44"
+          priority
+        />
+      </motion.div>
 
-        {/* Rejected standard */}
-        <motion.p {...f(0.2)} className="text-base md:text-lg mb-2 line-through opacity-30 italic"
-          style={{ color: "var(--steel-gray)" }}>
-          &ldquo;Stay light. Stay toned. Stay small.&rdquo;
-        </motion.p>
+      {/* Main content — fills remaining space, vertically centered */}
+      <div className="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-5 pb-10">
 
-        {/* Main headline */}
         <motion.h1
-          {...f(0.3)}
-          className="text-5xl sm:text-6xl md:text-8xl lg:text-[7rem] font-black uppercase leading-none tracking-tight mb-8"
-          style={{ fontFamily: "'Impact','Arial Black',sans-serif", color: "var(--soft-white)" }}
+          {...f(0.2)}
+          className="font-black uppercase leading-none tracking-tight mb-4 md:mb-6"
+          style={{
+            fontFamily: "var(--font-display, 'Arial Black', sans-serif)",
+            color: "#FFFFFF",
+            fontSize: "clamp(3.2rem, 10vw, 6rem)",
+          }}
         >
           You Were{" "}
           <span style={{ color: "var(--crimson)" }}>Never</span>
@@ -57,31 +63,44 @@ export default function HeroSection() {
           <span style={{ color: "var(--crimson)" }}>Stay Small.</span>
         </motion.h1>
 
-        <motion.p {...f(0.45)} className="text-lg md:text-xl max-w-xl mx-auto leading-relaxed mb-12"
-          style={{ color: "rgba(245,240,235,0.7)" }}>
-          An invitation into a stronger standard.
-          Not a workout plan — a behavioral code.
+        <motion.p
+          {...f(0.35)}
+          className="text-sm md:text-base max-w-xs md:max-w-md mx-auto leading-relaxed mb-6 md:mb-8"
+          style={{ color: "rgba(255,255,255,0.8)", fontFamily: "var(--font-body, 'Inter', sans-serif)" }}
+        >
+          An invitation into a stronger standard. Not a workout plan — a behavioral code.
         </motion.p>
 
-        <motion.div {...f(0.55)} className="flex flex-col items-center gap-3">
-          <a href="#close"
-            className="inline-block px-8 md:px-12 py-4 md:py-5 text-xs md:text-sm font-black uppercase tracking-[0.2em] transition-transform hover:scale-[1.03] pulse-cta w-full sm:w-auto text-center"
-            style={{ background: "var(--crimson)", color: "var(--soft-white)", fontFamily: "'Arial Black',sans-serif" }}>
-            Start Your Free 7-Day Trial →
-          </a>
-          <p className="text-xs tracking-widest" style={{ color: "rgba(245,240,235,0.4)" }}>
-            No credit card required &nbsp;·&nbsp; Cancel anytime
-          </p>
-        </motion.div>
+        <motion.button
+          {...f(0.48)}
+          onClick={onCta}
+          className="px-8 md:px-12 py-3 md:py-4 text-xs font-black uppercase tracking-[0.2em] transition-opacity hover:opacity-90 pulse-cta"
+          style={{
+            background: "var(--crimson)",
+            color: "#FFFFFF",
+            fontFamily: "var(--font-display, 'Arial Black', sans-serif)",
+            borderRadius: "var(--radius-md)",
+          }}
+        >
+          Done Playing Small. Start Free →
+        </motion.button>
       </div>
 
-      {/* Scroll cue */}
-      <motion.div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-10"
-        initial={{ opacity: 0 }} animate={{ opacity: 0.35 }} transition={{ delay: 1.5 }}>
-        <span className="text-xs tracking-[0.4em] uppercase" style={{ color: "var(--soft-white)" }}>Watch</span>
-        <motion.div className="w-px" style={{ background: "var(--crimson)", height: 40 }}
-          initial={{ scaleY: 0 }} animate={{ scaleY: 1 }} transition={{ delay: 1.7, duration: 0.5 }} />
+      {/* Scroll cue — anchored bottom */}
+      <motion.div
+        className="relative z-10 flex flex-col items-center pb-5 md:pb-7 gap-1.5"
+        initial={{ opacity: 0 }} animate={{ opacity: 0.5 }} transition={{ delay: 1.3 }}
+      >
+        <span className="text-xs tracking-[0.4em] uppercase"
+          style={{ color: "#FFFFFF", fontFamily: "var(--font-display, 'Arial Black', sans-serif)" }}>
+          Watch
+        </span>
+        {/* V chevron */}
+        <svg width="18" height="10" viewBox="0 0 18 10" fill="none">
+          <polyline points="1,1 9,9 17,1" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+        </svg>
       </motion.div>
+
     </section>
   );
 }
