@@ -26,7 +26,7 @@ export default function StickyCtaBar({ onCta }: { onCta: () => void }) {
           <div className="max-w-5xl mx-auto px-6 py-3 flex items-center justify-between gap-4">
             <div className="hidden sm:block">
               <p className="text-sm font-black uppercase tracking-wide"
-                 style={{ color: "#FFFFFF", fontFamily: "var(--font-display, 'Arial Black', sans-serif)" }}>
+                 style={{ color: "#FFFFFF", fontFamily: "var(--font-display, 'Poppins', sans-serif)" }}>
                 BGSC
               </p>
               <p className="text-xs" style={{ color: "rgba(255,255,255,0.6)" }}>
@@ -38,7 +38,7 @@ export default function StickyCtaBar({ onCta }: { onCta: () => void }) {
               style={{
                 background: "var(--crimson)",
                 color: "#FFFFFF",
-                fontFamily: "var(--font-display, 'Arial Black', sans-serif)",
+                fontFamily: "var(--font-display, 'Poppins', sans-serif)",
                 borderRadius: "var(--radius-md)",
               }}>
               Start Free Trial →

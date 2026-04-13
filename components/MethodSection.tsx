@@ -5,11 +5,11 @@ import Image from "next/image";
 import { Eyebrow, Display } from "./ui";
 
 const PHASES = [
-  { phase: "Phase 1", name: "Foundation", weeks: "Weeks 1–4", img: "/images/phase1-foundation.jpg",
+  { phase: "Phase 1", name: "Foundation", weeks: "Weeks 1-4", img: "/images/phase1-foundation.jpg",
     desc: "Movement patterns, structural integrity, joint prep. You learn how your body actually works — then you learn to demand more from it." },
-  { phase: "Phase 2", name: "Build",       weeks: "Weeks 5–10", img: "/images/phase2-build.jpg",
+  { phase: "Phase 2", name: "Build",       weeks: "Weeks 5-10", img: "/images/phase2-build.jpg",
     desc: "Progressive overload done right. You'll lift numbers you didn't think were possible. This is where the identity shift happens." },
-  { phase: "Phase 3", name: "Power",       weeks: "Weeks 11–16", img: "/images/phase3-power.jpg",
+  { phase: "Phase 3", name: "Power",       weeks: "Weeks 11-16", img: "/images/phase3-power.jpg",
     desc: "Strength meets speed meets presence. You don't just look different — you move differently. You enter rooms differently." },
 ];
 
@@ -26,21 +26,21 @@ const INCLUDED = [
 
 export default function MethodSection() {
   return (
-    <section className="py-24 px-6" style={{ background: "var(--near-black)" }}>
+    <section className="py-24 px-6" style={{ background: "var(--surface-1)" }}>
       <div className="max-w-5xl mx-auto">
 
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }} transition={{ duration: 0.6 }} className="max-w-3xl mb-20">
+          viewport={{ once: true }} transition={{ duration: 0.6 }} className="max-w-3xl mb-16">
           <Eyebrow>The Method</Eyebrow>
-          <Display className="text-3xl sm:text-4xl md:text-5xl mb-6">
+          <Display className="text-3xl sm:text-4xl md:text-5xl mb-4">
             Eat Clean.{" "}
             <span style={{ color: "var(--crimson)" }}>Lift Heavy.</span>
             {" "}Get Coached.
           </Display>
           <p className="text-lg leading-relaxed"
-             style={{ color: "rgba(255,255,255,0.75)", fontFamily: "var(--font-body, 'Inter', sans-serif)" }}>
+             style={{ color: "var(--ash)", fontFamily: "var(--font-body, 'Inter', sans-serif)" }}>
             Not a recycled men&apos;s program. Not high-rep &ldquo;toning.&rdquo; A structured 16-week
-            system built around three pillars that actually move the needle — clean nutrition,
+            system built around three pillars that actually move the needle - clean nutrition,
             heavy progressive lifting, and real coaching accountability.
           </p>
         </motion.div>
@@ -50,35 +50,35 @@ export default function MethodSection() {
           {PHASES.map((p, i) => (
             <motion.div key={p.phase}
               className="relative overflow-hidden"
-              style={{ background: "var(--surface-1)", border: "1px solid var(--border)", borderRadius: "var(--radius-lg)" }}
+              style={{ background: "#0e0e0ea2", border: "1px solid var(--border)" }}
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
             >
-              <div className="relative h-44 overflow-hidden" style={{ borderRadius: "var(--radius-lg) var(--radius-lg) 0 0" }}>
+              <div className="relative h-44 overflow-hidden">
                 <Image src={p.img} alt={p.name} fill
-                  className="object-cover object-center"
+                  className="object-cover object-center select-none pointer-events-none"
                   style={{ filter: "brightness(0.8) contrast(1.15)" }} />
                 <div className="absolute inset-0" style={{
-                  background: "linear-gradient(to bottom, transparent 40%, var(--surface-1) 100%)"
+                  background: "linear-gradient(to bottom, transparent 40%, #0e0e0e 100%)"
                 }} />
-                <span className="absolute top-3 right-4 text-6xl font-black opacity-[0.12] leading-none"
-                  style={{ fontFamily: "var(--font-display, 'Arial Black', sans-serif)", color: "#FFFFFF" }}>
+                <span className="absolute top-3 right-4 text-6xl font-black opacity-[0.12] leading-none select-none"
+                  style={{ fontFamily: "var(--font-display, 'Poppins', sans-serif)", color: "#FFFFFF" }}>
                   {String(i + 1).padStart(2, "0")}
                 </span>
               </div>
               <div className="p-6">
                 <p className="text-xs font-bold uppercase tracking-widest mb-1"
-                   style={{ color: "var(--crimson)", fontFamily: "var(--font-display, 'Arial Black', sans-serif)" }}>
+                   style={{ color: "var(--crimson)", fontFamily: "var(--font-display, 'Poppins', sans-serif)" }}>
                   {p.phase} · {p.weeks}
                 </p>
                 <h3 className="text-2xl font-black uppercase mb-3"
-                    style={{ fontFamily: "var(--font-display, 'Arial Black', sans-serif)", color: "#FFFFFF" }}>
+                    style={{ fontFamily: "var(--font-display, 'Poppins', sans-serif)", color: "#FFFFFF" }}>
                   {p.name}
                 </h3>
                 <p className="text-sm leading-relaxed"
-                   style={{ color: "rgba(255,255,255,0.72)", fontFamily: "var(--font-body, 'Inter', sans-serif)" }}>{p.desc}</p>
+                   style={{ color: "var(--ash)", fontFamily: "var(--font-body, 'Inter', sans-serif)" }}>{p.desc}</p>
               </div>
             </motion.div>
           ))}
@@ -89,7 +89,7 @@ export default function MethodSection() {
           style={{ background: "var(--surface-2)", border: "1px solid var(--border)", borderRadius: "var(--radius-lg)" }}
           initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
           <h4 className="text-xs font-bold uppercase tracking-[0.3em] mb-8"
-              style={{ color: "var(--crimson)", fontFamily: "var(--font-display, 'Arial Black', sans-serif)" }}>
+              style={{ color: "var(--crimson)", fontFamily: "var(--font-display, 'Poppins', sans-serif)" }}>
             Everything Included in Your Free 7-Day Trial
           </h4>
           <ul className="grid md:grid-cols-2 gap-x-12 gap-y-4">

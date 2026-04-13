@@ -105,7 +105,7 @@ export default function CultureSection() {
                 </div>
                 <div>
                   <p className="text-sm font-bold"
-                     style={{ color: "#FFFFFF", fontFamily: "var(--font-display, 'Arial Black', sans-serif)" }}>{v.name}</p>
+                     style={{ color: "#FFFFFF", fontFamily: "var(--font-display, 'Poppins', sans-serif)" }}>{v.name}</p>
                   <p className="text-xs mt-0.5"
                      style={{ color: "rgba(255,255,255,0.5)", fontFamily: "var(--font-body, 'Inter', sans-serif)" }}>{v.tag}</p>
                 </div>
@@ -127,11 +127,11 @@ export default function CultureSection() {
               initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}>
               <p className="text-3xl md:text-5xl font-black"
-                 style={{ fontFamily: "var(--font-display, 'Arial Black', sans-serif)", color: "var(--crimson)" }}>
+                 style={{ fontFamily: "var(--font-display, 'Poppins', sans-serif)", color: "var(--crimson)" }}>
                 {s.number}
               </p>
               <p className="text-xs mt-2 uppercase tracking-widest"
-                 style={{ color: "rgba(255,255,255,0.5)", fontFamily: "var(--font-display, 'Arial Black', sans-serif)" }}>
+                 style={{ color: "rgba(255,255,255,0.5)", fontFamily: "var(--font-display, 'Poppins', sans-serif)" }}>
                 {s.label}
               </p>
             </motion.div>

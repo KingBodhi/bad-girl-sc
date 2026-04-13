@@ -3,6 +3,7 @@
 import { useState } from "react";
 import HeroSection from "@/components/HeroSection";
 import VideoSection from "@/components/VideoSection";
+import ScrollReveal from "@/components/ScrollReveal";
 import MarqueeBar from "@/components/MarqueeBar";
 import ProblemSection from "@/components/ProblemSection";
 import StandardSection from "@/components/StandardSection";
@@ -21,8 +22,11 @@ export default function VSLPage() {
       <SignupModal open={modalOpen} onClose={() => setModalOpen(false)} />
       <StickyCtaBar onCta={() => setModalOpen(true)} />
       <HeroSection onCta={() => setModalOpen(true)} />
-      <MarqueeBar />
+      <div className="bg-black"><MarqueeBar /></div>
       <VideoSection />
+      <ScrollReveal className="bg-near-black">
+        "you have spent years being subtly rewarded for being agreeable and low-friction. at some point that starts to feel like confinement."
+      </ScrollReveal>
       <div className="section-divider" />
       <ProblemSection />
       <div className="section-divider" />

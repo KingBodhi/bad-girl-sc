@@ -49,7 +49,7 @@ export default function CloseSection({ onCta }: { onCta: () => void }) {
               style={{
                 background: "var(--crimson)",
                 color: "#FFFFFF",
-                fontFamily: "var(--font-display, 'Arial Black', sans-serif)",
+                fontFamily: "var(--font-display, 'Poppins', sans-serif)",
                 borderRadius: "var(--radius-md)",
               }}>
               Done Playing Small. Start Free →
@@ -73,13 +73,13 @@ export default function CloseSection({ onCta }: { onCta: () => void }) {
           initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }} transition={{ duration: 0.6 }}>
           <p className="text-xs tracking-[0.3em] uppercase mb-6 font-bold"
-             style={{ color: "rgba(255,255,255,0.5)", fontFamily: "var(--font-display, 'Arial Black', sans-serif)" }}>
+             style={{ color: "rgba(255,255,255,0.5)", fontFamily: "var(--font-display, 'Poppins', sans-serif)" }}>
             After your 7-day trial
           </p>
           <div className="flex items-end justify-center gap-10 mb-4">
             <div className="text-center">
               <p className="text-3xl font-black"
-                 style={{ fontFamily: "var(--font-display, 'Arial Black', sans-serif)", color: "#FFFFFF" }}>
+                 style={{ fontFamily: "var(--font-display, 'Poppins', sans-serif)", color: "#FFFFFF" }}>
                 $47<span className="text-lg font-normal">/mo</span>
               </p>
               <p className="text-xs mt-1" style={{ color: "rgba(255,255,255,0.5)" }}>Monthly</p>
@@ -87,7 +87,7 @@ export default function CloseSection({ onCta }: { onCta: () => void }) {
             <div className="text-center">
               <p className="text-xs font-bold uppercase tracking-widest mb-2" style={{ color: "var(--crimson)" }}>Best value</p>
               <p className="text-3xl font-black"
-                 style={{ fontFamily: "var(--font-display, 'Arial Black', sans-serif)", color: "#FFFFFF" }}>
+                 style={{ fontFamily: "var(--font-display, 'Poppins', sans-serif)", color: "#FFFFFF" }}>
                 $297<span className="text-lg font-normal">/yr</span>
               </p>
               <p className="text-xs mt-1" style={{ color: "rgba(255,255,255,0.5)" }}>$25/month · save 47%</p>
@@ -101,7 +101,7 @@ export default function CloseSection({ onCta }: { onCta: () => void }) {
           initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}
           viewport={{ once: true }} transition={{ duration: 0.8 }}>
           <p className="text-2xl md:text-3xl lg:text-4xl font-black uppercase mb-4 px-4"
-             style={{ color: "var(--crimson)", fontFamily: "var(--font-display, 'Arial Black', sans-serif)" }}>
+             style={{ color: "var(--crimson)", fontFamily: "var(--font-display, 'Poppins', sans-serif)" }}>
             If you are ready to build something stronger, you are in the right place.
           </p>
           <p className="text-xs mt-8" style={{ color: "rgba(255,255,255,0.15)" }}>
