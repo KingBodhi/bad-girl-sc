@@ -1,105 +1,181 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 
-const f = (delay = 0) => ({
-  initial: { opacity: 0, y: 16 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.7, delay, ease: "easeOut" as const },
-});
-
 export default function HeroSection({ onCta }: { onCta: () => void }) {
-  return (
-    <section className="relative h-screen max-h-screen flex flex-col overflow-hidden">
+  const [stage, setStage] = useState(0);
 
+  useEffect(() => {
+    const KEY = "bgsc-hero-animation";
+    const ONE_WEEK = 7 * 24 * 60 * 60 * 1000;
+
+    const now = Date.now();
+    const lastSeen = localStorage.getItem(KEY);
+
+    const shouldAnimate =
+      !lastSeen || now - parseInt(lastSeen, 10) > ONE_WEEK;
+
+    if (!shouldAnimate) {
+      setStage(1);
+      document.body.style.overflow = "auto";
+      return;
+    }
+
+    document.body.style.overflow = "hidden";
+
+    const timer1 = setTimeout(() => {
+      setStage(1);
+    }, 2000);
+
+    const timer2 = setTimeout(() => {
+      document.body.style.overflow = "auto";
+      localStorage.setItem(KEY, now.toString());
+    }, 3500);
+
+    return () => {
+      document.body.style.overflow = "auto";
+      clearTimeout(timer1);
+      clearTimeout(timer2);
+    };
+  }, []);
+
+  return (
+    <section className="relative h-screen min-h-[600px] max-h-[900px] flex flex-col overflow-hidden bg-black">
+      
       {/* Full-bleed background */}
-      <div className="absolute inset-0 z-0">
+      <motion.div 
+        initial={{ opacity: 0, scale: 1.1 }}
+        animate={stage >= 1 ? { opacity: 1, scale: 1 } : { opacity: 0 }}
+        transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
+        className="absolute inset-0 z-0"
+      >
         <Image
           src="/images/hero-bg.jpg"
           alt="Bad Girl Strength Club"
           fill
           priority
-          className="object-cover object-center"
-          style={{ filter: "brightness(0.65) contrast(1.1)" }}
+          sizes="100vw"
+          className="object-cover object-center select-none pointer-events-none"
+          style={{ filter: "brightness(0.6) contrast(1.1)" }}
         />
+        {/* Main Vignette */}
         <div className="absolute inset-0"
           style={{
-            background: "linear-gradient(to bottom, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.85) 100%)"
+            background: "linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.85) 100%)"
           }} />
-      </div>
-
-      {/* Logo — anchored top, smaller on mobile */}
-      <motion.div
-        {...f(0.05)}
-        className="relative z-10 flex justify-center pt-5 md:pt-8"
-      >
-        <Image
-          src="/images/bgsc-logo.png"
-          alt="BGSC — Bad Girl Strength Club"
-          width={640}
-          height={216}
-          className="w-24 h-auto md:w-44"
-          priority
-        />
+        {/* Bottom Blend Gradient */}
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-linear-to-t from-black to-transparent" />
       </motion.div>
 
-      {/* Main content — fills remaining space, vertically centered */}
-      <div className="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-5 pb-10">
-
-        <motion.h1
-          {...f(0.2)}
-          className="font-black uppercase leading-none tracking-tight mb-4 md:mb-6"
-          style={{
-            fontFamily: "var(--font-display, 'Arial Black', sans-serif)",
-            color: "#FFFFFF",
-            fontSize: "clamp(3.2rem, 10vw, 6rem)",
-          }}
+      {/* Logo — Animate from center to top */}
+      <div className="absolute inset-0 z-20 pointer-events-none flex justify-center">
+        <motion.div
+          initial={{ top: "50%", y: "-50%", scale: 1.2 }}
+          animate={stage === 0 
+            ? { top: "50%", y: "-50%", scale: 1.2 } 
+            : { top: "0%", y: "2rem", scale: 0.6 }
+          }
+          transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+          className="absolute"
         >
-          You Were{" "}
-          <span style={{ color: "var(--crimson)" }}>Never</span>
-          <br />
-          Meant to{" "}
-          <span style={{ color: "var(--crimson)" }}>Stay Small.</span>
-        </motion.h1>
-
-        <motion.p
-          {...f(0.35)}
-          className="text-sm md:text-base max-w-xs md:max-w-md mx-auto leading-relaxed mb-6 md:mb-8"
-          style={{ color: "rgba(255,255,255,0.8)", fontFamily: "var(--font-body, 'Inter', sans-serif)" }}
-        >
-          An invitation into a stronger standard. Not a workout plan — a behavioral code.
-        </motion.p>
-
-        <motion.button
-          {...f(0.48)}
-          onClick={onCta}
-          className="px-8 md:px-12 py-3 md:py-4 text-xs font-black uppercase tracking-[0.2em] transition-opacity hover:opacity-90 pulse-cta"
-          style={{
-            background: "var(--crimson)",
-            color: "#FFFFFF",
-            fontFamily: "var(--font-display, 'Arial Black', sans-serif)",
-            borderRadius: "var(--radius-md)",
-          }}
-        >
-          Done Playing Small. Start Free →
-        </motion.button>
+          <Image
+            src="/logo.svg"
+            alt="BGSC Logo"
+            width={640}
+            height={216}
+            className="w-48 md:w-80 select-none pointer-events-none"
+            priority
+          />
+        </motion.div>
       </div>
 
-      {/* Scroll cue — anchored bottom */}
-      <motion.div
+      {/* Content — Reveal after logo moves */}
+      <div className="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-5 pt-20">
+        <div className="max-w-4xl mx-auto mt-[25%] md:mt-[10%]">
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={stage >= 1 ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 1, delay: 0.8, ease: "easeOut" }}
+            className="font-black uppercase leading-none tracking-tight"
+            style={{
+              fontFamily: "var(--font-display, 'Poppins', sans-serif)",
+              color: "#FFFFFF",
+              fontSize: "clamp(3.2rem, 10vw, 5.5rem)",
+            }}
+          >
+            You Were{" "}
+            <span style={{ color: "var(--crimson)" }}>Never</span>
+            <br />
+            Meant to{" "}
+            <span style={{ color: "var(--crimson)" }}>Stay Small.</span>
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 15 }}
+            animate={stage >= 1 ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 1, delay: 1.1, ease: "easeOut" }}
+            className="text-base md:text-lg max-w-xs md:max-w-md mx-auto uppercase leading-relaxed mt-3 lg:mt-0 mb-6"
+            style={{ color: "var(--ash)", fontFamily: "var(--font-body, 'Inter', sans-serif)" }}
+          >
+            An invitation into a stronger standard.
+          </motion.p>
+
+          <motion.button
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={stage >= 1 ? { opacity: 1, scale: 1 } : {}}
+            transition={{ duration: 0.8, delay: 1.4, ease: "easeOut" }}
+            onClick={onCta}
+            className="group relative inline-flex items-center h-[56px] pl-18 pr-9 overflow-hidden bg-soft-white text-near-black transition-all duration-300 cursor-pointer"
+            style={{ borderRadius: "2px" }}
+          >
+            {/* Expanding Box */}
+            <div className="absolute left-1 top-1 bottom-1 w-[44px] bg-near-black text-soft-white transition-all duration-500 ease-[cubic-bezier(0.85,0,0.15,1)] group-hover:w-[calc(100%-8px)] z-20 flex items-center justify-center border border-white/5">
+              <div className="absolute transition-all duration-300 ease-out flex items-center justify-center group-hover:opacity-0 group-hover:scale-50">
+                <svg width="20" height="20" viewBox="-5 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M0 12.781v6.719c0 0.813 0.594 1.406 1.438 1.406h7.813v5.375c0 0.5 0.219 0.813 0.688 1.031 0.125 0.031 0.281 0.063 0.406 0.063 0.313 0 0.563-0.094 0.781-0.313l10.094-10.156c0.438-0.375 0.438-1.125 0-1.563l-10.094-10.063c-0.625-0.688-1.875-0.25-1.875 0.781v5.344h-7.813c-0.844 0-1.438 0.563-1.438 1.375z" fill="currentColor"/>  
+                </svg>
+              </div>
+              
+              <div className="absolute transition-all duration-500 ease-[cubic-bezier(0.85,0,0.15,1)] scale-50 opacity-0 group-hover:scale-100 group-hover:opacity-100 flex items-center justify-center gap-3 uppercase font-bold text-[10px] md:text-xs tracking-[0.3em] whitespace-nowrap">
+                <span>Accept Invitation</span>
+              </div>
+            </div>
+
+            <span className="relative z-10 font-bold uppercase text-[11px] md:text-xs tracking-[0.25em] transition-opacity duration-300 group-hover:opacity-0 whitespace-nowrap">
+              Done Playing Small
+            </span>
+          </motion.button>
+        </div>
+      </div>
+
+      {/* Scroll cue */}
+      {/* <motion.div
+        onClick={() => document.getElementById("video-section")?.scrollIntoView({ behavior: "smooth" })}
         className="relative z-10 flex flex-col items-center pb-5 md:pb-7 gap-1.5"
-        initial={{ opacity: 0 }} animate={{ opacity: 0.5 }} transition={{ delay: 1.3 }}
+        initial={{ opacity: 0 }}
+        animate={stage >= 1 ? { opacity: 0.5 } : {}}
+        transition={{ delay: 1.8, duration: 1 }}
       >
         <span className="text-xs tracking-[0.4em] uppercase"
-          style={{ color: "#FFFFFF", fontFamily: "var(--font-display, 'Arial Black', sans-serif)" }}>
+          style={{ color: "#FFFFFF", fontFamily: "var(--font-display, 'Poppins', sans-serif)" }}>
           Watch
         </span>
-        {/* V chevron */}
-        <svg width="18" height="10" viewBox="0 0 18 10" fill="none">
-          <polyline points="1,1 9,9 17,1" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
-        </svg>
-      </motion.div>
+        <motion.div
+          animate={{ y: [0, 8, 0, 8, 0, 0] }}
+          transition={{ 
+            repeat: Infinity, 
+            duration: 3, 
+            ease: "easeInOut",
+            times: [0, 0.1, 0.2, 0.3, 0.4, 1]
+          }}
+        >
+          <svg width="18" height="10" viewBox="0 0 18 10" fill="none">
+            <polyline points="1,1 9,9 17,1" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </motion.div>
+      </motion.div> */}
 
     </section>
   );

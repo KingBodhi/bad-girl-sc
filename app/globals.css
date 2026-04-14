@@ -1,9 +1,22 @@
 @import "tailwindcss";
 
+@theme {
+  --color-crimson: #8F0000;
+  --color-near-black: #0D0D0D;
+  --color-soft-white: #F5F5F3;
+  --color-steel: #555555;
+  --color-ash: #BFBFBF;
+  --color-surface-1: #111111;
+  --color-surface-2: #161616;
+  --color-border: #1E1E1E;
+}
+
 :root {
-  --crimson: #8F0000;       /* Deep Crimson — accent only: buttons, highlights */
+  --crimson: #8F0000;
   --near-black: #0D0D0D;
-  --soft-white: #FFFFFF;
+  --soft-white: #F5F5F3;
+  --steel: #555555;
+  --ash: #BFBFBF;
   --surface-1: #111111;
   --surface-2: #161616;
   --border: #1E1E1E;
