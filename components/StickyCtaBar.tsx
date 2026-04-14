@@ -68,7 +68,7 @@ export default function StickyCtaBar({ onCta }: { onCta: () => void }) {
                   </div>
 
                   <div className="absolute transition-all duration-500 ease-[cubic-bezier(0.85,0,0.15,1)] scale-50 opacity-0 group-hover:scale-100 group-hover:opacity-100 flex items-center justify-center">
-                    <Image src="/images/logo-notext.svg" alt="BGSC" width={80} height={20} className="w-20 md:w-24 h-auto brightness-100" />
+                    <Image src="/images/logo-notext.svg" alt="BGSC" width={80} height={20} className="w-20 md:w-24 h-auto brightness-100 select-none" />
                   </div>
                 </div>
 

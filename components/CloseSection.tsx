@@ -121,7 +121,7 @@ export default function CloseSection({ onCta }: { onCta: () => void }) {
             {/* Premium */}
             <div className="text-center">
               <p className="text-xs font-bold uppercase tracking-widest mb-3 text-crimson">
-                Premium
+                VIP
               </p>
 
               <p className="text-4xl md:text-5xl font-black text-soft-white leading-none">

@@ -116,7 +116,7 @@ export default function HeroSection({ onCta }: { onCta: () => void }) {
             initial={{ opacity: 0, y: 15 }}
             animate={stage >= 1 ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 1, delay: 1.1, ease: "easeOut" }}
-            className="text-base md:text-lg max-w-xs md:max-w-md mx-auto leading-relaxed mt-3 lg:mt-0 mb-6"
+            className="text-base md:text-lg max-w-xs md:max-w-md mx-auto uppercase leading-relaxed mt-3 lg:mt-0 mb-6"
             style={{ color: "var(--ash)", fontFamily: "var(--font-body, 'Inter', sans-serif)" }}
           >
             An invitation into a stronger standard. Not a workout plan but a behavioral code.

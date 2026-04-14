@@ -58,15 +58,14 @@ export default function VideoSection() {
             </div>
           </div>
 
-          <div className="mt-6 max-w-3xl mx-auto flex items-center justify-between gap-2">
+          {/* <div className="mt-6 max-w-3xl mx-auto flex items-center justify-between gap-2">
             <p className="text-sm" style={{ color: "rgba(255,255,255,0.5)", fontFamily: "var(--font-body, 'Inter', sans-serif)" }}>
               Sound on. No fluff. Just truth.
             </p>
-            {/* <span style={{ color: "var(--border)" }}>·</span> */}
             <p className="text-sm" style={{ color: "rgba(255,255,255,0.5)", fontFamily: "var(--font-body, 'Inter', sans-serif)" }}>
               ~8 min
             </p>
-          </div>
+          </div> */}
         </motion.div>
       </div>
     </section>
