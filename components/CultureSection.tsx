@@ -32,12 +32,12 @@ export default function CultureSection() {
 
         <motion.div className="mb-16" initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
-          <Eyebrow>Culture &amp; Outcomes</Eyebrow>
+          {/* <Eyebrow>Culture &amp; Outcomes</Eyebrow> */}
           <Display className="text-3xl sm:text-4xl md:text-5xl mb-4 leading-[1.05]">
             More Than a{" "}
             <span style={{ color: "var(--crimson)" }}>Workout Plan.</span>
           </Display>
-          <p className="text-sm max-w-2xl leading-relaxed"
+          <p className="text-sm md:text-base max-w-3xl leading-relaxed"
              style={{ color: "var(--ash)", fontFamily: "var(--font-body, 'Inter', sans-serif)" }}>
             You don&apos;t need more content. You need the right culture.
             Women from every background united by one refusal - to stay where they were told to stay.
@@ -90,6 +90,7 @@ export default function CultureSection() {
                       src={img.src}
                       alt={img.alt}
                       fill
+                      sizes="(max-width: 768px) 50vw, 33vw"
                       className="object-cover select-none pointer-events-none brightness-80"
                     />
                   </div>
@@ -103,24 +104,29 @@ export default function CultureSection() {
           <div className="hidden md:grid grid-cols-3 gap-6">
             <div className="col-span-2 relative" style={{ height: 320 }}>
               <Image src="/images/community-1.jpg" alt="BGSC community" fill
+                sizes="(max-width: 768px) 100vw, 66vw"
                 className="object-cover select-none pointer-events-none border border-border brightness-80" />
             </div>
             <div className="flex flex-col gap-6">
               <div className="relative flex-1" style={{ minHeight: 156 }}>
                 <Image src="/images/community-2.jpg" alt="Members training together" fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
                   className="object-cover select-none pointer-events-none border border-border brightness-80" />
               </div>
               <div className="relative flex-1">
                 <Image src="/images/community-3.jpg" alt="Chalk and preparation" fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
                   className="object-cover select-none pointer-events-none border border-border brightness-80" />
               </div>
             </div>
             <div className="relative" style={{ height: 200 }}>
               <Image src="/images/community-4.jpg" alt="Rest between sets" fill
+                sizes="(max-width: 768px) 100vw, 33vw"
                 className="object-cover select-none pointer-events-none border border-border brightness-80" />
             </div>
             <div className="col-span-2 relative" style={{ height: 200 }}>
               <Image src="/images/community-5.jpg" alt="The barbell" fill
+                sizes="(max-width: 768px) 100vw, 66vw"
                 className="object-cover object-top select-none pointer-events-none border border-border brightness-80" />
             </div>
           </div>
@@ -134,7 +140,7 @@ export default function CultureSection() {
               viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}>
               <div className="flex items-center gap-3 mb-5">
                 <div className="relative w-12 h-12 rounded-full overflow-hidden shrink-0 border border-border">
-                  <Image src={v.img} alt={v.name} fill className="object-cover select-none pointer-events-none" />
+                  <Image src={v.img} alt={v.name} fill sizes="48px" className="object-cover select-none pointer-events-none" />
                 </div>
                 <div>
                   <p className="text-sm font-bold"

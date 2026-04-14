@@ -35,7 +35,7 @@ export default function ProblemSection() {
           >
             {/* Image 1 */}
             <div 
-              className="bg-border p-px w-full aspect-5/4" 
+              className="bg-border p-px w-full aspect-10/9" 
               style={{ clipPath: "polygon(20% 0, 100% 0, 100% 80%, 80% 100%, 0 100%, 0 20%)" }}
             >
               <div 
@@ -46,6 +46,7 @@ export default function ProblemSection() {
                   src="/images/community-1.jpg" 
                   alt="The old standard — Section 1" 
                   fill
+                  sizes="(max-width: 1024px) 100vw, 40vw"
                   className="object-cover object-center select-none pointer-events-none" 
                 />
               </div>
@@ -53,7 +54,7 @@ export default function ProblemSection() {
 
             {/* Image 2 */}
             <div 
-              className="bg-border p-px w-full aspect-5/4" 
+              className="bg-border p-px w-full aspect-10/9" 
               style={{ clipPath: "polygon(0 0, 80% 0, 100% 20%, 100% 100%, 20% 100%, 0 80%)" }}
             >
               <div 
@@ -64,6 +65,7 @@ export default function ProblemSection() {
                   src="/images/community-4.jpg" 
                   alt="The old standard — Section 2" 
                   fill
+                  sizes="(max-width: 1024px) 100vw, 40vw"
                   className="object-cover object-center select-none pointer-events-none" 
                 />
               </div>
@@ -78,7 +80,7 @@ export default function ProblemSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
           >
-            <Eyebrow className="mb-4">What Actually Happened</Eyebrow>
+            {/* <Eyebrow className="mb-4">What Actually Happened</Eyebrow> */}
             <Display className="text-3xl sm:text-4xl md:text-5xl mb-10 leading-[1.05]">
               You Were Taught to{" "}
               <span className="text-crimson">Train for Less.</span>
@@ -93,11 +95,11 @@ export default function ProblemSection() {
                   transition={{ duration: 0.5, delay: i * 0.1 }}
                   className="group"
                 >
-                  <p className="text-sm md:text-base font-bold mb-1.5 uppercase tracking-wider flex items-start gap-2">
+                  <p className="text-base md:text-lg font-bold mb-1.5 uppercase tracking-wider flex items-start gap-2">
                     <span className="aspect-square bg-crimson w-1.5 h-1.5 rounded-full mt-2"/>
                     <span className="text-soft-white">{p.hook}</span>
                   </p>
-                  <p className="text-sm leading-relaxed text-ash pl-4.5">
+                  <p className="text-sm md:text-base leading-relaxed text-ash pl-3.5">
                     {p.body}
                   </p>
                 </motion.div>

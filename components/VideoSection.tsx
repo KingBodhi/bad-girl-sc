@@ -17,10 +17,10 @@ export default function VideoSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <p className="text-xs tracking-[0.3em] uppercase font-bold mb-4"
+          {/* <p className="text-xs tracking-[0.3em] uppercase font-bold mb-4"
              style={{ color: "var(--crimson)", fontFamily: "var(--font-display, 'Poppins', sans-serif)" }}>
             Watch This First
-          </p>
+          </p> */}
 
           <div className="relative">
             {/* Offset Background Frame */}

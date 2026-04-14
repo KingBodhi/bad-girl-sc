@@ -37,7 +37,7 @@ export default function ScrollReveal({ children, className = "" }: ScrollRevealP
   const words = useMemo(() => children.split(" "), [children]);
 
   return (
-    <section ref={containerRef} className={`py-40 px-6 flex items-center justify-center ${className}`}>
+    <section ref={containerRef} className={`relative py-40 px-6 flex items-center justify-center ${className}`}>
       <div className="relative max-w-4xl mx-auto">
         <motion.div 
           style={{ 

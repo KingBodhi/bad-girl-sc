@@ -15,13 +15,34 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://badgirlstrengthclub.com"),
   title: "Bad Girl Strength Club — You Were Never Meant to Stay Small",
   description:
     "Stop training to shrink. Start training to dominate. The strength program built for women who refuse to stay small.",
+  icons: {
+    icon: "/favicon.png",
+  },
   openGraph: {
     title: "Bad Girl Strength Club",
-    description: "You Were Never Meant to Stay Small.",
+    description: "You Were Never Meant to Stay Small. Join the standard.",
+    url: "https://badgirlstrengthclub.com",
     siteName: "Bad Girl Strength Club",
+    images: [
+      {
+        url: "/card.png",
+        width: 1200,
+        height: 630,
+        alt: "Bad Girl Strength Club",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Bad Girl Strength Club",
+    description: "You Were Never Meant to Stay Small.",
+    images: ["/card.png"],
   },
 };
 

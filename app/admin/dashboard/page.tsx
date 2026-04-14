@@ -62,7 +62,7 @@ export default function AdminDashboard() {
 
       {/* Top bar */}
       <div className="flex items-center justify-between px-8 py-4 border-b" style={{ borderColor: "var(--border)" }}>
-        <Image src="/images/bgsc-logo.png" alt="BGSC" width={120} height={40} className="w-24 h-auto" />
+        <Image src="/logo.svg" alt="BGSC" width={120} height={40} className="w-24 h-auto" />
         <nav className="flex items-center gap-6">
           <span className="text-xs uppercase tracking-widest" style={{ color: "var(--crimson)", fontFamily: "var(--font-display)" }}>Dashboard</span>
           <Link href="/admin/members" className="text-xs uppercase tracking-widest hover:text-white transition-colors"

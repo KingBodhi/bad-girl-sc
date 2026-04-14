@@ -10,8 +10,8 @@ type Stat = {
 };
 
 const STATS: Stat[] = [
-  { number: 1200, suffix: "+", label: "Active Women" },
-  { number: 16, suffix: " Weeks", label: "Structured System" },
+  { number: 100, suffix: "+", label: "Active Women" },
+  { number: 12, suffix: " Weeks", label: "Structured System" },
   { number: 94, suffix: "%", label: "Completed all phases" },
 ];
 

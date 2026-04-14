@@ -84,7 +84,7 @@ export default function SignupModal({ open, onClose }: Props) {
                   <motion.div key="form" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
 
                     <div className="flex justify-center mb-7">
-                      <Image src="/images/bgsc-logo.png" alt="BGSC" width={140} height={48} className="w-28 h-auto select-none pointer-events-none" />
+                      <Image src="/logo.svg" alt="BGSC" width={200} height={68} className="w-40 h-auto select-none pointer-events-none" />
                     </div>
 
                     <h2 className="text-xl md:text-2xl font-black uppercase leading-tight text-center mb-2"
@@ -145,7 +145,7 @@ export default function SignupModal({ open, onClose }: Props) {
                     initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
                     className="py-8 text-center">
                     <div className="flex justify-center mb-6">
-                      <Image src="/images/bgsc-logo.png" alt="BGSC" width={140} height={48} className="w-28 h-auto" />
+                      <Image src="/logo.svg" alt="BGSC" width={200} height={68} className="w-40 h-auto" />
                     </div>
                     <div className="w-12 h-12 mx-auto mb-6 flex items-center justify-center"
                       style={{ background: "var(--crimson)" }}>

@@ -14,11 +14,11 @@ const PHASES = [
 ];
 
 const INCLUDED = [
-  "16-week progressive training system",
+  "12-week progressive training system",
   "Full video demonstration library",
   "Nutrition guidance built around performance",
   "Weekly coach check-ins",
-  "Private community of 1,200+ women",
+  "Private community of strong women",
   "Lifetime access to all program updates",
   "Mobile app for session logging",
   "Monthly live Q&A with Steph",
@@ -31,15 +31,15 @@ export default function MethodSection() {
 
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }} transition={{ duration: 0.6 }} className="max-w-3xl mb-16">
-          <Eyebrow>The Method</Eyebrow>
+          {/* <Eyebrow>The Method</Eyebrow> */}
           <Display className="text-3xl sm:text-4xl md:text-5xl mb-4 leading-[1.05]">
             Eat Clean.{" "}
             <span style={{ color: "var(--crimson)" }}>Lift Heavy.</span>
             {" "}Get Coached.
           </Display>
-          <p className="text-sm leading-relaxed"
+          <p className="text-sm md:text-base leading-relaxed"
              style={{ color: "var(--ash)", fontFamily: "var(--font-body, 'Inter', sans-serif)" }}>
-            Not a recycled men&apos;s program. Not high-rep &ldquo;toning.&rdquo; A structured 16-week
+            Not a recycled men&apos;s program. Not high-rep &ldquo;toning.&rdquo; A structured 12-week
             system built around three pillars that actually move the needle - clean nutrition,
             heavy progressive lifting, and real coaching accountability.
           </p>
@@ -49,8 +49,7 @@ export default function MethodSection() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
           {PHASES.map((p, i) => (
             <motion.div key={p.phase}
-              className="relative overflow-hidden"
-              style={{ background: "#0e0e0ea2", border: "1px solid var(--border)" }}
+              className="relative overflow-hidden transition-all duration-300 border border-border bg-[#0e0e0ea2]"
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -58,21 +57,22 @@ export default function MethodSection() {
             >
               <div className="relative h-44 overflow-hidden">
                 <Image src={p.img} alt={p.name} fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   className="object-cover object-center select-none pointer-events-none"
                   style={{ filter: "brightness(0.8) contrast(1.15)" }} />
                 <div className="absolute inset-0" style={{
                   background: "linear-gradient(to bottom, transparent 40%, #0e0e0e 100%)"
                 }} />
-                <span className="absolute top-3 right-4 text-6xl font-black opacity-[0.12] leading-none select-none"
+                {/* <span className="absolute top-3 right-4 text-6xl font-black opacity-[0.12] leading-none select-none"
                   style={{ fontFamily: "var(--font-display, 'Poppins', sans-serif)", color: "#FFFFFF" }}>
                   {String(i + 1).padStart(2, "0")}
-                </span>
+                </span> */}
               </div>
               <div className="p-6">
-                <p className="text-xs font-bold uppercase tracking-widest mb-1"
+                {/* <p className="text-xs font-bold uppercase tracking-widest mb-1"
                    style={{ color: "var(--crimson)", fontFamily: "var(--font-display, 'Poppins', sans-serif)" }}>
                   {p.phase} · {p.weeks}
-                </p>
+                </p> */}
                 <h3 className="text-2xl font-black uppercase mb-3"
                     style={{ fontFamily: "var(--font-display, 'Poppins', sans-serif)", color: "#FFFFFF" }}>
                   {p.name}

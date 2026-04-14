@@ -56,6 +56,7 @@ export default function HeroSection({ onCta }: { onCta: () => void }) {
           alt="Bad Girl Strength Club"
           fill
           priority
+          sizes="100vw"
           className="object-cover object-center select-none pointer-events-none"
           style={{ filter: "brightness(0.6) contrast(1.1)" }}
         />
@@ -74,17 +75,17 @@ export default function HeroSection({ onCta }: { onCta: () => void }) {
           initial={{ top: "50%", y: "-50%", scale: 1.2 }}
           animate={stage === 0 
             ? { top: "50%", y: "-50%", scale: 1.2 } 
-            : { top: "0%", y: "2rem", scale: 1 }
+            : { top: "0%", y: "2rem", scale: 0.6 }
           }
           transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
           className="absolute"
         >
           <Image
-            src="/images/bgsc-logo.png"
+            src="/logo.svg"
             alt="BGSC Logo"
             width={640}
             height={216}
-            className="w-32 md:w-56 brightness-100 select-none pointer-events-none"
+            className="w-48 md:w-80 select-none pointer-events-none"
             priority
           />
         </motion.div>
@@ -115,7 +116,7 @@ export default function HeroSection({ onCta }: { onCta: () => void }) {
             initial={{ opacity: 0, y: 15 }}
             animate={stage >= 1 ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 1, delay: 1.1, ease: "easeOut" }}
-            className="text-sm md:text-base max-w-xs md:max-w-md mx-auto leading-relaxed mt-3 lg:mt-0 mb-6"
+            className="text-base md:text-lg max-w-xs md:max-w-md mx-auto leading-relaxed mt-3 lg:mt-0 mb-6"
             style={{ color: "var(--ash)", fontFamily: "var(--font-body, 'Inter', sans-serif)" }}
           >
             An invitation into a stronger standard. Not a workout plan but a behavioral code.
@@ -132,14 +133,13 @@ export default function HeroSection({ onCta }: { onCta: () => void }) {
             {/* Expanding Box */}
             <div className="absolute left-1 top-1 bottom-1 w-[44px] bg-near-black text-soft-white transition-all duration-500 ease-[cubic-bezier(0.85,0,0.15,1)] group-hover:w-[calc(100%-8px)] z-20 flex items-center justify-center border border-white/5">
               <div className="absolute transition-all duration-300 ease-out flex items-center justify-center group-hover:opacity-0 group-hover:scale-50">
-                <svg width="16" height="14" viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M0 6V8H16V6H0ZM12 8V10H14V8H12ZM10 10V12H12V10H10ZM8 12V14H10V12H8ZM12 6V4H14V6H12Z" fill="currentColor"/>
-                  <path d="M10 10V2H12V10H10ZM8 12V0H10V12H8Z" fill="currentColor"/>
+                <svg width="20" height="20" viewBox="-5 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M0 12.781v6.719c0 0.813 0.594 1.406 1.438 1.406h7.813v5.375c0 0.5 0.219 0.813 0.688 1.031 0.125 0.031 0.281 0.063 0.406 0.063 0.313 0 0.563-0.094 0.781-0.313l10.094-10.156c0.438-0.375 0.438-1.125 0-1.563l-10.094-10.063c-0.625-0.688-1.875-0.25-1.875 0.781v5.344h-7.813c-0.844 0-1.438 0.563-1.438 1.375z" fill="currentColor"/>  
                 </svg>
               </div>
               
-              <div className="absolute transition-all duration-500 ease-[cubic-bezier(0.85,0,0.15,1)] scale-50 opacity-0 group-hover:scale-100 group-hover:opacity-100 flex items-center justify-center gap-3 uppercase font-black text-[10px] md:text-xs tracking-[0.3em] whitespace-nowrap">
-                <span>Start Free</span>
+              <div className="absolute transition-all duration-500 ease-[cubic-bezier(0.85,0,0.15,1)] scale-50 opacity-0 group-hover:scale-100 group-hover:opacity-100 flex items-center justify-center gap-3 uppercase font-bold text-[10px] md:text-xs tracking-[0.3em] whitespace-nowrap">
+                <span>Accept Invitation</span>
               </div>
             </div>
 
@@ -151,7 +151,7 @@ export default function HeroSection({ onCta }: { onCta: () => void }) {
       </div>
 
       {/* Scroll cue */}
-      <motion.div
+      {/* <motion.div
         onClick={() => document.getElementById("video-section")?.scrollIntoView({ behavior: "smooth" })}
         className="relative z-10 flex flex-col items-center pb-5 md:pb-7 gap-1.5"
         initial={{ opacity: 0 }}
@@ -175,7 +175,7 @@ export default function HeroSection({ onCta }: { onCta: () => void }) {
             <polyline points="1,1 9,9 17,1" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </motion.div>
-      </motion.div>
+      </motion.div> */}
 
     </section>
   );
