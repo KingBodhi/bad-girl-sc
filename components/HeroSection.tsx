@@ -92,31 +92,29 @@ export default function HeroSection({ onCta }: { onCta: () => void }) {
       </div>
 
       {/* Content — Reveal after logo moves */}
-      <div className="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-5 pt-10">
-        <div className="max-w-4xl mx-auto mt-[20%] md:mt-12 lg:mt-6">
+      <div className="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-5 pt-20 md:pt-24">
+        <div className="max-w-3xl mx-auto w-full">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={stage >= 1 ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 1, delay: 0.8, ease: "easeOut" }}
-            className="font-black uppercase leading-none md:leading-none tracking-tight leading-[1.1]"
+            className="font-black uppercase leading-none tracking-tight"
             style={{
               fontFamily: "var(--font-display, 'Poppins', sans-serif)",
-              fontSize: "clamp(3.2rem, 10vw, 7.5rem)",
+              fontSize: "clamp(3rem, 5.5vw, 4.5rem)",
             }}
           >
-            <span className="block text-white mb-5 md:mb-2">You Were</span>
-            <span className="block text-crimson mb-5 md:mb-2">Never</span>
-            <span className="block text-white mb-5 md:mb-2">Meant To</span>
-            <span className="block text-crimson mb-5 md:mb-2">
-              Stay Small
-            </span>
+            <span className="block text-white mb-2 md:mb-1">You Were</span>
+            <span className="block text-crimson mb-2 md:mb-1">Never</span>
+            <span className="block text-white mb-2 md:mb-1">Meant To</span>
+            <span className="block text-crimson">Stay Small</span>
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 15 }}
             animate={stage >= 1 ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 1, delay: 1.1, ease: "easeOut" }}
-            className="text-base md:text-lg max-w-xs md:max-w-md mx-auto uppercase leading-relaxed pt-10 mt-3 lg:mt-0 mb-6"
+            className="text-sm md:text-base max-w-xs md:max-w-md mx-auto uppercase leading-relaxed mt-5 md:mt-4 mb-6"
             style={{ color: "var(--ash)", fontFamily: "var(--font-body, 'Inter', sans-serif)" }}
           >
             A CHALLENGE TO A STRONGER STANDARD.
