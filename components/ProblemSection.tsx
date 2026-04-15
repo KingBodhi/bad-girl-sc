@@ -21,61 +21,94 @@ const PROBLEMS = [
 
 export default function ProblemSection() {
   return (
-    <section className="py-24 px-6" style={{ background: "var(--near-black)" }}>
+    <section className="py-24 px-6 bg-surface-1">
       <div className="max-w-5xl mx-auto">
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+        <div className="grid lg:grid-cols-12 gap-12 items-start">
 
-          {/* Image */}
+          {/* Dual Images */}
           <motion.div
-            className="relative overflow-hidden hidden md:block"
-            style={{ height: 520, borderRadius: "var(--radius-lg)" }}
+            className="lg:col-span-5 grid grid-cols-1 gap-4 lg:gap-6 lg:mb-0"
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <Image src="/images/problem-before.jpg" alt="The old standard" fill
-              className="object-cover object-center" style={{ filter: "brightness(0.85) contrast(1.1)" }} />
-            <div className="absolute left-0 top-0 bottom-0 w-1" style={{ background: "var(--crimson)" }} />
+            {/* Image 1 */}
+            <div 
+              className="bg-border p-px w-full aspect-10/9" 
+              style={{ clipPath: "polygon(20% 0, 100% 0, 100% 80%, 80% 100%, 0 100%, 0 20%)" }}
+            >
+              <div 
+                className="relative w-full h-full overflow-hidden" 
+                style={{ clipPath: "polygon(20% 0, 100% 0, 100% 80%, 80% 100%, 0 100%, 0 20%)" }}
+              >
+                <Image 
+                  src="/images/community-1.jpg" 
+                  alt="The old standard — Section 1" 
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 40vw"
+                  className="object-cover object-center select-none pointer-events-none" 
+                />
+              </div>
+            </div>
+
+            {/* Image 2 */}
+            <div 
+              className="bg-border p-px w-full aspect-10/9" 
+              style={{ clipPath: "polygon(0 0, 80% 0, 100% 20%, 100% 100%, 20% 100%, 0 80%)" }}
+            >
+              <div 
+                className="relative w-full h-full overflow-hidden" 
+                style={{ clipPath: "polygon(0 0, 80% 0, 100% 20%, 100% 100%, 20% 100%, 0 80%)" }}
+              >
+                <Image 
+                  src="/images/community-4.jpg" 
+                  alt="The old standard — Section 2" 
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 40vw"
+                  className="object-cover object-center select-none pointer-events-none" 
+                />
+              </div>
+            </div>
           </motion.div>
 
           {/* Copy */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            className="lg:col-span-6"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.1 }}
+            transition={{ duration: 0.7 }}
           >
-            <Eyebrow>What Actually Happened</Eyebrow>
-            <Display className="text-3xl sm:text-4xl md:text-5xl mb-8 md:mb-12">
+            {/* <Eyebrow className="mb-4">What Actually Happened</Eyebrow> */}
+            <Display className="text-3xl sm:text-4xl md:text-5xl mb-10 leading-[1.05]">
               You Were Taught to{" "}
-              <span style={{ color: "var(--crimson)" }}>Train for Less.</span>
+              <span className="text-crimson">Train for Less.</span>
             </Display>
 
-            <div className="space-y-10">
+            <div className="space-y-5">
               {PROBLEMS.map((p, i) => (
                 <motion.div key={i}
-                  initial={{ opacity: 0, y: 16 }}
+                  initial={{ opacity: 0, y: 10 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.2 + i * 0.12 }}
+                  transition={{ duration: 0.5, delay: i * 0.1 }}
+                  className="group"
                 >
-                  <p className="text-base font-bold mb-2 uppercase tracking-wide"
-                     style={{ color: "#FFFFFF", fontFamily: "var(--font-display, 'Arial Black', sans-serif)" }}>
-                    {p.hook}
+                  <p className="text-base md:text-lg font-bold mb-1.5 uppercase tracking-wider flex items-start gap-2">
+                    <span className="aspect-square bg-crimson w-1.5 h-1.5 rounded-full mt-2"/>
+                    <span className="text-soft-white">{p.hook}</span>
                   </p>
-                  <p className="text-sm leading-relaxed"
-                     style={{ color: "rgba(255,255,255,0.72)", fontFamily: "var(--font-body, 'Inter', sans-serif)" }}>
+                  <p className="text-sm md:text-base leading-relaxed text-ash pl-3.5">
                     {p.body}
                   </p>
                 </motion.div>
               ))}
             </div>
 
-            <motion.div className="mt-12 pt-8" style={{ borderTop: "1px solid var(--border)" }}
-              initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.6 }}>
-              <p className="text-lg md:text-2xl font-black uppercase tracking-tight"
-                 style={{ color: "var(--crimson)", fontFamily: "var(--font-display, 'Arial Black', sans-serif)" }}>
+            <motion.div className="mt-10 pt-10 border-t border-crimson"
+              initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.5 }}>
+              <p className="text-md md:text-xl font-bold uppercase tracking-tight leading-snug text-soft-white">
                 If you are looking for permission to stay small, this is not for you.
               </p>
             </motion.div>

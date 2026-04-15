@@ -37,7 +37,7 @@ export default function AdminLogin() {
       <div className="w-full max-w-sm">
 
         <div className="flex justify-center mb-10">
-          <Image src="/images/bgsc-logo.png" alt="BGSC" width={160} height={54} className="w-32 h-auto" />
+          <Image src="/logo.svg" alt="BGSC" width={200} height={68} className="w-48 h-auto" />
         </div>
 
         <p className="text-xs tracking-[0.3em] uppercase text-center mb-8"
