@@ -78,7 +78,7 @@ export default function ProblemSection() {
                   transition={{ duration: 0.5, delay: i * 0.1 }}
                   className="group"
                 >
-                  <p className="text-xl md:text-2xl lg:text-2xl font-black uppercase tracking-wide flex items-start gap-4">
+                  <p className="text-base md:text-lg lg:text-lg font-black uppercase tracking-wide flex items-start gap-4">
                     <span className="shrink-0 aspect-square bg-crimson w-3 h-3 rounded-full mt-2.5 md:mt-3 lg:mt-3.5" />
                     <span className="text-soft-white leading-relaxed">{p.hook}</span>
                   </p>

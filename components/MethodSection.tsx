@@ -99,9 +99,6 @@ export default function MethodSection() {
               Everything Included
               <span style={{ color: "var(--crimson)" }}> in <br /> free trial</span>
             </Display>
-            <p className="text-sm text-ash max-w-md">
-              Everything you need to execute the system properly not guess your way through it.
-            </p>
           </div>
 
           {/* Grid */}

@@ -1,75 +1,21 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
-import { useEffect, useState } from "react";
-import { Eyebrow, Display } from "./ui";
+import { Display } from "./ui";
 
 export default function StandardSection() {
   return (
     <section className="py-24 px-6 bg-near-black">
       <div className="max-w-5xl mx-auto">
 
-        {/* Top */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center mb-16">
-          <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} className="relative order-2 lg:order-1"
-            viewport={{ once: true }} transition={{ duration: 0.7 }}>
-            <Display className="text-3xl sm:text-4xl md:text-5xl mb-4 leading-[1.05]">
-              A Different<br />
-              <span className="text-crimson">Standard.</span>
-            </Display>
-            <p className="text-sm md:text-base leading-relaxed mb-10 text-ash">
-              Women do not lack motivation they lack a standard worth keeping.
-              Bad Girl Strength Club is a behavioral identity system. You are not buying a workout program.
-              You are stepping into a new behavioral code.
-            </p>
-            {/* Core method - Square tiles */}
-            <div className="relative grid grid-cols-3 gap-3 max-w-sm ml-0">
-              {[
-                { text: "Eat Clean" },
-                { text: "Lift Heavy" },
-                { text: "Get Coached" }
-              ].map((item, i) => (
-                <motion.div
-                  key={i}
-                  className="group relative aspect-square border border-border flex flex-col items-center justify-center p-3 text-center cursor-default overflow-hidden bg-surface-1 transition-all duration-300 hover:bg-crimson/70 hover:border-crimson hover:scale-105"
-                  initial={{ opacity: 0, scale: 1 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                >
-                  <span className="relative z-10 text-[10px] md:text-xs font-black uppercase tracking-[0.2em] px-1 text-soft-white/70 group-hover:text-soft-white transition-colors">
-                    {item.text}
-                  </span>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-
-          {/* Image */}
-          <motion.div
-            className="relative overflow-hidden order-1 lg:order-2"
-            style={{ clipPath: "polygon(0 0, 100% 0, 100% 75%, 75% 100%, 0 100%)" }}
-          >
-            <div
-              className="relative w-full aspect-square max-w-[500px] bg-border p-px"
-              style={{ clipPath: "polygon(0 0, 100% 0, 100% 75%, 75% 100%, 0 100%)" }}
-            >
-              <div
-                className="relative w-full h-full bg-near-black overflow-hidden"
-                style={{ clipPath: "polygon(0 0, 100% 0, 100% 75%, 75% 100%, 0 100%)" }}
-              >
-                <Image
-                  src="/images/standard-power.jpg"
-                  alt="The stronger standard"
-                  fill
-                  priority
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  className="object-cover object-top select-none pointer-events-none"
-                />
-              </div>
-            </div>
-          </motion.div>
-        </div>
+        {/* Heading */}
+        <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }} transition={{ duration: 0.7 }} className="mb-16">
+          <Display className="text-3xl sm:text-4xl md:text-5xl leading-[1.05]">
+            A New<br />
+            <span className="text-crimson">Standard.</span>
+          </Display>
+        </motion.div>
 
         {/* Comparison table */}
         <motion.div

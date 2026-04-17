@@ -37,10 +37,6 @@ export default function CultureSection() {
             More Than a{" "}
             <span style={{ color: "var(--crimson)" }}>Workout Plan.</span>
           </Display>
-          <p className="text-sm md:text-base max-w-3xl leading-relaxed"
-            style={{ color: "var(--ash)", fontFamily: "var(--font-body, 'Inter', sans-serif)" }}>
-            A new standard for women who are done playing small. Will you accept the challenge?
-          </p>
         </motion.div>
 
         {/* Community image collage */}

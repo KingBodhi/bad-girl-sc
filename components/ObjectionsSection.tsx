@@ -47,9 +47,6 @@ export default function ObjectionsSection() {
           <Display className="text-4xl md:text-5xl uppercase tracking-tighter">
             FA<span style={{ color: "var(--crimson)" }}>Q<span className="lowercase">s</span></span>
           </Display>
-          <p className="text-ash text-sm md:text-base mt-4 max-w-xl opacity-70">
-            Clear answers to the friction points standing between you and the standard.
-          </p>
         </motion.div>
 
         <Accordion.Root type="single" collapsible className="space-y-2">

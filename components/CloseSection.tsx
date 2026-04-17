@@ -26,13 +26,6 @@ export default function CloseSection({ onCta }: { onCta: () => void }) {
             <Display className="text-3xl sm:text-4xl md:text-5xl mb-4 leading-[1.05]">
               Step Into a{" "} <span style={{ color: "var(--crimson)" }}>Stronger Standard.</span>
             </Display>
-            <p className="text-sm md:text-base leading-relaxed mb-7"
-              style={{ color: "var(--ash)", fontFamily: "var(--font-body, 'Inter', sans-serif)" }}>
-              You can keep doing what you&apos;ve been doing and stay exactly where you are.
-              Or you can accept the invitation and find out what
-              happens when you finally train like you mean it.
-            </p>
-
             <ul className="space-y-3 mb-8">
               {PERKS.map((perk) => (
                 <li key={perk} className="flex items-start gap-3">
@@ -58,7 +51,7 @@ export default function CloseSection({ onCta }: { onCta: () => void }) {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
               onClick={onCta}
-              className="group relative inline-flex items-center h-[56px] pl-18 pr-9 overflow-hidden bg-soft-white text-near-black transition-all duration-300 cursor-pointer"
+              className="group relative inline-flex items-center h-[56px] pl-18 pr-9 overflow-hidden bg-soft-white text-near-black transition-all duration-300 cursor-pointer mx-auto lg:mx-0 block"
               style={{ borderRadius: "2px" }}
             >
               {/* Expanding Box */}
