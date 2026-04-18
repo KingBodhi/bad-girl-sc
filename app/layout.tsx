@@ -21,14 +21,14 @@ const archivoBlack = Archivo_Black({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://bgsc-website-three.vercel.app"),
+  metadataBase: new URL("https://bgsc.vercel.app"),
   title: "Bad Girl Strength Club — You Were Never Meant to Stay Small",
   description:
     "Stop training to shrink. Start training to dominate. The strength program built for women who refuse to stay small.",
   openGraph: {
     title: "Bad Girl Strength Club",
     description: "You Were Never Meant to Stay Small. Join the standard.",
-    url: "https://bgsc-website-three.vercel.app",
+    url: "https://bgsc.vercel.app",
     siteName: "Bad Girl Strength Club",
     locale: "en_US",
     type: "website",
