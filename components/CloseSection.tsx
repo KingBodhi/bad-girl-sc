@@ -74,8 +74,7 @@ export default function CloseSection({ onCta }: { onCta: () => void }) {
           </motion.div>
 
           {/* Right: image */}
-          <motion.div className="relative overflow-hidden hidden lg:block"
-            style={{ height: 560 }}
+          <motion.div className="relative overflow-hidden h-[380px] sm:h-[460px] lg:h-[560px]"
             initial={{ opacity: 0, scale: 0.97 }} whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.15 }}>
             <Image src="/images/close-triumph.jpg" alt="Step into a stronger standard" fill
@@ -100,13 +99,13 @@ export default function CloseSection({ onCta }: { onCta: () => void }) {
           {/* Pricing */}
           <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-10 mb-12">
 
-            {/* BASIC */}
+            {/* CLUB */}
             <div className="group cursor-pointer rounded-[2px] border border-white/20 px-8 py-8 w-[240px] md:w-[260px] text-center transition-all duration-300 bg-crimson/80 hover:bg-crimson/10 hover:border-crimson hover:scale-105 flex flex-col justify-between h-[220px]">
               <p
                 className="text-[30px] uppercase tracking-[0.2em] mb-4 text-soft-white font-bold"
                 style={{ fontFamily: "var(--font-display)" }}
               >
-                Basic
+                Club
               </p>
 
               <p className="text-5xl md:text-6xl font-black text-soft-white leading-none">
@@ -117,7 +116,7 @@ export default function CloseSection({ onCta }: { onCta: () => void }) {
               </p>
 
               <p className="text-sm mt-4 text-soft-white font-bold uppercase">
-                Foundation & Build
+                Club Membership
               </p>
             </div>
 
@@ -137,7 +136,7 @@ export default function CloseSection({ onCta }: { onCta: () => void }) {
               </p>
 
               <p className="text-sm mt-4 text-soft-white font-bold uppercase">
-                Full System + Elite Coaching
+                Club Membership & VIP Coaching
               </p>
             </div>
 
@@ -155,7 +154,7 @@ export default function CloseSection({ onCta }: { onCta: () => void }) {
           viewport={{ once: true }} transition={{ duration: 0.8 }}>
           <p className="text-2xl md:text-3xl lg:text-4xl font-black uppercase mb-4 px-4"
             style={{ color: "var(--soft-white)", fontFamily: "var(--font-display, 'Poppins', sans-serif)" }}>
-            If you are ready to build something stronger, you are at the right place.
+            If you are ready to build something stronger, you are in the right place.
           </p>
           <p className="text-xs mt-8 text-ash">
             © {new Date().getFullYear()} Bad Girl Strength Club · All rights reserved

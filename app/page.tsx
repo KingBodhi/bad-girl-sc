@@ -24,9 +24,9 @@ export default function VSLPage() {
     <main className="relative overflow-x-hidden">
       <StickyCtaBar onCta={handleCta} />
       <HeroSection onCta={handleCta} />
-      <div className="h-20 md:h-45 bg-black" />
-      <div className="bg-black"><MarqueeBar /></div>
+      <div className="h-8 md:h-20 bg-black" />
       <VideoSection />
+      <div className="bg-black"><MarqueeBar /></div>
       <ScrollReveal className="bg-near-black">
         "you have spent years being subtly rewarded for being agreeable and low friction. at some point that starts to feel like confinement."
       </ScrollReveal>
