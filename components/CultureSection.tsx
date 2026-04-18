@@ -102,25 +102,18 @@ export default function CultureSection() {
                 sizes="(max-width: 768px) 100vw, 66vw"
                 className="object-cover select-none pointer-events-none border border-border brightness-80" />
             </div>
-            <div className="flex flex-col gap-6">
-              <div className="relative flex-1" style={{ minHeight: 156 }}>
-                <Image src="/images/community-2.jpg" alt="Members training together" fill
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                  className="object-cover select-none pointer-events-none border border-border brightness-80" />
-              </div>
-              <div className="relative flex-1">
-                <Image src="/images/community-3.jpg" alt="Chalk and preparation" fill
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                  className="object-cover select-none pointer-events-none border border-border brightness-80" />
-              </div>
+            <div className="relative" style={{ height: 320 }}>
+              <Image src="/images/community-2.jpg" alt="Members training together" fill
+                sizes="(max-width: 768px) 100vw, 33vw"
+                className="object-cover select-none pointer-events-none border border-border brightness-80" />
             </div>
             <div className="relative" style={{ height: 200 }}>
-              <Image src="/images/community-4.jpg" alt="Rest between sets" fill
+              <Image src="/images/community-3.jpg" alt="Rest between sets" fill
                 sizes="(max-width: 768px) 100vw, 33vw"
                 className="object-cover select-none pointer-events-none border border-border brightness-80" />
             </div>
             <div className="col-span-2 relative" style={{ height: 200 }}>
-              <Image src="/images/community-5.jpg" alt="The barbell" fill
+              <Image src="/images/community-4.jpg" alt="The barbell" fill
                 sizes="(max-width: 768px) 100vw, 66vw"
                 className="object-cover object-top select-none pointer-events-none border border-border brightness-80" />
             </div>

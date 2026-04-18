@@ -6,42 +6,43 @@ import { Play, Pause } from "lucide-react";
 
 export default function VideoSection() {
   const [isPlaying, setIsPlaying] = useState(false);
+  const [hasClicked, setHasClicked] = useState(false);
   const [isShakingNow, setIsShakingNow] = useState(false);
   const VIDEO_EMBED_URL = process.env.NEXT_PUBLIC_VIDEO_EMBED_URL ?? "";
 
-  // Shake configuration:
-  // shakeAmplitude: How far it physically moves (scale: 1-10+)
-  // shakeSpeed: How fast it shakes (scale: 1-10+)
   const shakeAmplitude = 2;
   const shakeSpeed = 9;
 
-  // Intermittent Shake Controls:
-  const shakeIntervalMs = 2000; // Time between shakes in milliseconds (e.g. 4000 = 4s)
-  const shakeActiveMs = 2000;    // How long it actually shakes for (e.g. 800 = 0.8s)
+  const shakeActiveMs = 700;
+  const shakeRestMs = 1800;
+  const initialDelayMs = 800;
 
-  // Intermittent shake effect
   useEffect(() => {
-    if (isPlaying) {
+    if (isPlaying || hasClicked) {
       setIsShakingNow(false);
       return;
     }
 
-    // Initial burst
-    const initialTimeout = setTimeout(() => {
-      setIsShakingNow(true);
-      setTimeout(() => setIsShakingNow(false), shakeActiveMs);
-    }, 1000);
+    let timeout: ReturnType<typeof setTimeout>;
+    let cancelled = false;
 
-    const intervalId = setInterval(() => {
-      setIsShakingNow(true);
-      setTimeout(() => setIsShakingNow(false), shakeActiveMs);
-    }, shakeIntervalMs);
-
-    return () => {
-      clearTimeout(initialTimeout);
-      clearInterval(intervalId);
+    const rest = () => {
+      if (cancelled) return;
+      setIsShakingNow(false);
+      timeout = setTimeout(shake, shakeRestMs);
     };
-  }, [isPlaying]);
+    const shake = () => {
+      if (cancelled) return;
+      setIsShakingNow(true);
+      timeout = setTimeout(rest, shakeActiveMs);
+    };
+
+    timeout = setTimeout(shake, initialDelayMs);
+    return () => {
+      cancelled = true;
+      clearTimeout(timeout);
+    };
+  }, [isPlaying, hasClicked]);
 
   // Glow mode: 'static' (solid border/glow) or 'spinning' (circling border)
   let glowMode = 'static';
@@ -80,7 +81,8 @@ export default function VideoSection() {
                 tilt-shaking, horizontal-shaking, vertical-shaking, skew-x-shaking, skew-y-shaking, tilt-n-move-shaking
                 Choose whichever you prefer by changing the class below when !isPlaying! */}
             <div
-              className={`relative z-10 p-[2px] overflow-hidden shadow-[0_0_70px_-15px_var(--crimson)] ${(!isPlaying && isShakingNow) ? 'tilt-shaking' : ''}`}
+              onClick={() => setHasClicked(true)}
+              className={`relative z-10 p-[2px] overflow-hidden shadow-[0_0_70px_-15px_var(--crimson)] ${(!isPlaying && !hasClicked && isShakingNow) ? 'tilt-shaking' : ''}`}
               style={{
                 '--shake-amplitude': shakeAmplitude,
                 '--shake-duration': shakeDuration

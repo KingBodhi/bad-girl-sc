@@ -38,17 +38,17 @@ const IMAGES = [
     prompt: `${BASE_STYLE}. Strong Latina athletic woman standing tall in a dark gym, arms at sides, direct commanding eye contact, dramatic side lighting carving muscle definition, short cropped athletic wear, the posture of a founder not a fitness influencer, editorial portrait, conviction`,
   },
   {
-    name: "phase1-foundation",
+    name: "eat-clean",
     size: "landscape_4_3",
     prompt: `${BASE_STYLE}. Extreme close-up of a woman's hands gripping a barbell, chalk dust suspended in air, veins and muscle texture visible, iron plate edge in background, texture of skin and iron, discipline captured in a single moment, macro cinematic`,
   },
   {
-    name: "phase2-build",
+    name: "lift-heavy",
     size: "landscape_4_3",
     prompt: `${BASE_STYLE}. Athletic woman mid-deadlift, heavy barbell at knee height, deep concentration, jaw set, back straight, dark gym floor, dramatic low lighting from the side, muscle engagement visible through clothing, raw strength editorial`,
   },
   {
-    name: "phase3-power",
+    name: "get-coached",
     size: "landscape_4_3",
     prompt: `${BASE_STYLE}. Athletic woman completing an overhead press, barbell locked out above head, triumphant but composed, dark background, spotlight from above, silhouette of strength, powerful femininity, the culmination of months of discipline`,
   },
@@ -71,11 +71,6 @@ const IMAGES = [
     name: "community-4",
     size: "landscape_4_3",
     prompt: `${BASE_STYLE}. Woman sitting on a weight bench between sets, sweat glistening, looking focused and powerful, not exhausted — intentional rest, dark background, cinematic portrait`,
-  },
-  {
-    name: "community-5",
-    size: "landscape_16_9",
-    prompt: `${BASE_STYLE}. Overhead shot of a barbell on the gym floor surrounded by chalk and weight plates, woman's athletic shoes visible at the edge, about to step up, anticipation before the lift`,
   },
   {
     name: "close-triumph",

@@ -6,17 +6,17 @@ import { Eyebrow, Display } from "./ui";
 
 const PHASES = [
   {
-    phase: "Phase 1", name: "Foundation", weeks: "Weeks 1-4", img: "/images/phase1-foundation.jpg",
+    phase: "Phase 1", name: "Foundation", weeks: "Weeks 1-4", img: "/images/eat-clean.jpg",
     desc: "Movement patterns, structural integrity, joint prep. You learn how your body actually works then you learn to demand more from it.",
     label: "EAT CLEAN"
   },
   {
-    phase: "Phase 2", name: "Build", weeks: "Weeks 5-10", img: "/images/phase2-build.jpg",
+    phase: "Phase 2", name: "Build", weeks: "Weeks 5-10", img: "/images/lift-heavy.jpg",
     desc: "Progressive overload done right. You'll lift numbers you didn't think were possible. This is where the identity shift happens.",
     label: "LIFT HEAVY"
   },
   {
-    phase: "Phase 3", name: "Power", weeks: "Weeks 11-16", img: "/images/phase3-power.jpg",
+    phase: "Phase 3", name: "Power", weeks: "Weeks 11-16", img: "/images/get-coached.jpg",
     desc: "Strength meets speed meets presence. You don't just look different you move differently. You enter rooms differently.",
     label: "GET COACHED"
   },

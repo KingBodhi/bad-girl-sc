@@ -43,7 +43,7 @@ export default function ProblemSection() {
                 style={{ clipPath: "polygon(20% 0, 100% 0, 100% 80%, 80% 100%, 0 100%, 0 20%)" }}
               >
                 <Image
-                  src="/images/community-1.jpg"
+                  src="/images/reflection.jpg"
                   alt="The old standard — Section 1"
                   fill
                   sizes="(max-width: 1024px) 100vw, 40vw"
